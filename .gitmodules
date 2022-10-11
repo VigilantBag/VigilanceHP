@@ -1,0 +1,3 @@
+[submodule "ICSpot"]
+	path = ICSpot
+	url = https://github.com/VigilantBag/ICSpot
