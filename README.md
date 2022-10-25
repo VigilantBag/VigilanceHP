@@ -2,9 +2,8 @@
 
 ## Run both install scripts with admin privileges
 
-1. [script1](./installdeps1.sh) 
-2. Make sure to change [Honeyd.conf](./ICSpot/honeyd.conf) to reflect the absolute file path of the [Scripts](./ICSpot/scripts) folder
-3. [script2](./installdeps2.sh)
+1. [Script1](./installdeps1.sh) **Make sure to follow the instructions provided after running script1**
+2. [Script2](./installdeps2.sh)
 
 ## Run a simulation to test installation
 
