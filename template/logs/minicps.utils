@@ -1,0 +1,303 @@
+2022-10-10 09:19:41,010 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,012 - mininet - DEBUG - 64 bytes from 192.168.56.110: icmp_seq=1 ttl=64 time=1.03 ms
+2022-10-10 09:19:41,012 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,012 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,013 - mininet - DEBUG - --- 192.168.56.110 ping statistics ---
+2022-10-10 09:19:41,013 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,014 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,014 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,014 - mininet - DEBUG - rtt min/avg/max/mdev = 1.037/1.037/1.037/0.000 ms
+2022-10-10 09:19:41,020 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,021 - mininet - DEBUG - 
+2022-10-10 09:19:41,021 - mininet - Level 25 - attacker 
+2022-10-10 09:19:41,021 - mininet - DEBUG - *** plc0 : ('LANG=C ping -c1  192.168.56.106',)
+
+2022-10-10 09:19:41,024 - mininet - DEBUG - PING 192.168.56.106 (192.168.56.106) 56(84) bytes of data.
+2022-10-10 09:19:41,024 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,027 - mininet - DEBUG - 64 bytes from 192.168.56.106: icmp_seq=1 ttl=64 time=2.26 ms
+2022-10-10 09:19:41,028 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,028 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,028 - mininet - DEBUG - --- 192.168.56.106 ping statistics ---
+2022-10-10 09:19:41,028 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,029 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,029 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,029 - mininet - DEBUG - rtt min/avg/max/mdev = 2.266/2.266/2.266/0.000 ms
+2022-10-10 09:19:41,030 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,030 - mininet - DEBUG - 
+2022-10-10 09:19:41,031 - mininet - Level 25 - plc1 
+2022-10-10 09:19:41,032 - mininet - DEBUG - *** plc0 : ('LANG=C ping -c1  192.168.56.107',)
+
+2022-10-10 09:19:41,040 - mininet - DEBUG - PING 192.168.56.107 (192.168.56.107) 56(84) bytes of data.
+2022-10-10 09:19:41,042 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,044 - mininet - DEBUG - 64 bytes from 192.168.56.107: icmp_seq=1 ttl=64 time=1.70 ms
+2022-10-10 09:19:41,044 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,045 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,045 - mininet - DEBUG - --- 192.168.56.107 ping statistics ---
+2022-10-10 09:19:41,045 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,045 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,046 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,046 - mininet - DEBUG - rtt min/avg/max/mdev = 1.704/1.704/1.704/0.000 ms
+2022-10-10 09:19:41,046 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,047 - mininet - DEBUG - 
+2022-10-10 09:19:41,047 - mininet - Level 25 - plc2 
+2022-10-10 09:19:41,047 - mininet - Level 25 - 
+
+2022-10-10 09:19:41,051 - mininet - Level 25 - plc1 -> 
+2022-10-10 09:19:41,052 - mininet - DEBUG - *** plc1 : ('LANG=C ping -c1  192.168.56.110',)
+
+2022-10-10 09:19:41,055 - mininet - DEBUG - PING 192.168.56.110 (192.168.56.110) 56(84) bytes of data.
+2022-10-10 09:19:41,057 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,058 - mininet - DEBUG - 64 bytes from 192.168.56.110: icmp_seq=1 ttl=64 time=1.02 ms
+2022-10-10 09:19:41,059 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,059 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,059 - mininet - DEBUG - --- 192.168.56.110 ping statistics ---
+2022-10-10 09:19:41,059 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,060 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,060 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,060 - mininet - DEBUG - rtt min/avg/max/mdev = 1.023/1.023/1.023/0.000 ms
+2022-10-10 09:19:41,060 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,061 - mininet - DEBUG - 
+2022-10-10 09:19:41,061 - mininet - Level 25 - attacker 
+2022-10-10 09:19:41,061 - mininet - DEBUG - *** plc1 : ('LANG=C ping -c1  192.168.56.105',)
+
+2022-10-10 09:19:41,067 - mininet - DEBUG - PING 192.168.56.105 (192.168.56.105) 56(84) bytes of data.
+2022-10-10 09:19:41,067 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,069 - mininet - DEBUG - 64 bytes from 192.168.56.105: icmp_seq=1 ttl=64 time=1.00 ms
+2022-10-10 09:19:41,069 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,069 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,069 - mininet - DEBUG - --- 192.168.56.105 ping statistics ---
+2022-10-10 09:19:41,070 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,070 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,070 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,070 - mininet - DEBUG - rtt min/avg/max/mdev = 1.006/1.006/1.006/0.000 ms
+2022-10-10 09:19:41,070 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,071 - mininet - DEBUG - 
+2022-10-10 09:19:41,071 - mininet - Level 25 - plc0 
+2022-10-10 09:19:41,071 - mininet - DEBUG - *** plc1 : ('LANG=C ping -c1  192.168.56.107',)
+
+2022-10-10 09:19:41,075 - mininet - DEBUG - PING 192.168.56.107 (192.168.56.107) 56(84) bytes of data.
+2022-10-10 09:19:41,076 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,078 - mininet - DEBUG - 64 bytes from 192.168.56.107: icmp_seq=1 ttl=64 time=1.40 ms
+2022-10-10 09:19:41,078 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,079 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,081 - mininet - DEBUG - --- 192.168.56.107 ping statistics ---
+2022-10-10 09:19:41,082 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,082 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,082 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,082 - mininet - DEBUG - rtt min/avg/max/mdev = 1.406/1.406/1.406/0.000 ms
+2022-10-10 09:19:41,082 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,083 - mininet - DEBUG - 
+2022-10-10 09:19:41,083 - mininet - Level 25 - plc2 
+2022-10-10 09:19:41,084 - mininet - Level 25 - 
+
+2022-10-10 09:19:41,084 - mininet - Level 25 - plc2 -> 
+2022-10-10 09:19:41,084 - mininet - DEBUG - *** plc2 : ('LANG=C ping -c1  192.168.56.110',)
+
+2022-10-10 09:19:41,091 - mininet - DEBUG - PING 192.168.56.110 (192.168.56.110) 56(84) bytes of data.
+2022-10-10 09:19:41,091 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,093 - mininet - DEBUG - 64 bytes from 192.168.56.110: icmp_seq=1 ttl=64 time=1.09 ms
+2022-10-10 09:19:41,093 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,093 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,094 - mininet - DEBUG - --- 192.168.56.110 ping statistics ---
+2022-10-10 09:19:41,094 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,094 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,094 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,095 - mininet - DEBUG - rtt min/avg/max/mdev = 1.091/1.091/1.091/0.000 ms
+2022-10-10 09:19:41,095 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,095 - mininet - DEBUG - 
+2022-10-10 09:19:41,095 - mininet - Level 25 - attacker 
+2022-10-10 09:19:41,096 - mininet - DEBUG - *** plc2 : ('LANG=C ping -c1  192.168.56.105',)
+
+2022-10-10 09:19:41,099 - mininet - DEBUG - PING 192.168.56.105 (192.168.56.105) 56(84) bytes of data.
+2022-10-10 09:19:41,099 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,100 - mininet - DEBUG - 64 bytes from 192.168.56.105: icmp_seq=1 ttl=64 time=0.744 ms
+2022-10-10 09:19:41,100 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,100 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,101 - mininet - DEBUG - --- 192.168.56.105 ping statistics ---
+2022-10-10 09:19:41,101 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,101 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,101 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,102 - mininet - DEBUG - rtt min/avg/max/mdev = 0.744/0.744/0.744/0.000 ms
+2022-10-10 09:19:41,102 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,102 - mininet - DEBUG - 
+2022-10-10 09:19:41,103 - mininet - Level 25 - plc0 
+2022-10-10 09:19:41,103 - mininet - DEBUG - *** plc2 : ('LANG=C ping -c1  192.168.56.106',)
+
+2022-10-10 09:19:41,104 - mininet - DEBUG - PING 192.168.56.106 (192.168.56.106) 56(84) bytes of data.
+2022-10-10 09:19:41,104 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,105 - mininet - DEBUG - 64 bytes from 192.168.56.106: icmp_seq=1 ttl=64 time=0.680 ms
+2022-10-10 09:19:41,105 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,106 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,106 - mininet - DEBUG - --- 192.168.56.106 ping statistics ---
+2022-10-10 09:19:41,106 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,106 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-10 09:19:41,107 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,107 - mininet - DEBUG - rtt min/avg/max/mdev = 0.680/0.680/0.680/0.000 ms
+2022-10-10 09:19:41,107 - mininet - DEBUG - 
+
+2022-10-10 09:19:41,108 - mininet - DEBUG - 
+2022-10-10 09:19:41,108 - mininet - Level 25 - plc1 
+2022-10-10 09:19:41,108 - mininet - Level 25 - 
+
+2022-10-10 09:19:41,109 - mininet - Level 25 - *** Results: 0% dropped (12/12 received)
+
+2022-10-10 09:19:41,117 - mininet - INFO - *** Starting CLI:
+
+2022-10-10 09:19:41,123 - mininet - DEBUG - *** errRun: ['stty', 'echo', 'sane', 'intr', '^C'] 
+
+2022-10-10 09:19:41,125 - mininet - DEBUG -   0
+2022-10-10 09:19:43,731 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2022-10-10 09:19:43,741 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2022-10-10 09:19:43,753 - mininet - DEBUG - _popen ['mnexec', '-da', '17528', 'xterm', '-title', '"Node: plc2"', '-display', ':0', '-e', 'env TERM=ansi bash'] 17645
+2022-10-10 09:19:52,981 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2022-10-10 09:19:52,984 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2022-10-10 09:19:52,986 - mininet - DEBUG - _popen ['mnexec', '-da', '17526', 'xterm', '-title', '"Node: plc1"', '-display', ':0', '-e', 'env TERM=ansi bash'] 17692
+2022-10-10 09:20:00,672 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2022-10-10 09:20:00,696 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2022-10-10 09:20:00,709 - mininet - DEBUG - _popen ['mnexec', '-da', '17524', 'xterm', '-title', '"Node: plc0"', '-display', ':0', '-e', 'env TERM=ansi bash'] 17762
+2022-10-10 09:20:10,057 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2022-10-10 09:20:10,070 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2022-10-10 09:20:10,081 - mininet - DEBUG - _popen ['mnexec', '-da', '17533', 'xterm', '-title', '"Node: s1" (root)', '-display', ':0', '-e', 'env TERM=ansi bash'] 17876
+2022-10-10 15:31:48,931 - mininet - Level 25 - 
+Interrupt
+
+2022-10-10 15:31:48,934 - mininet - DEBUG - *** errRun: ['stty', 'echo', 'sane', 'intr', '^C'] 
+
+2022-10-10 15:31:48,954 - mininet - DEBUG -   0
+2022-10-10 15:31:50,657 - mininet - INFO - *** Stopping 1 controllers
+
+2022-10-10 15:31:50,658 - mininet - INFO - c0 
+2022-10-10 15:31:50,658 - mininet - DEBUG - *** c0 : ('kill %/usr/bin/ovs-testcontroller',)
+
+2022-10-10 15:31:50,667 - mininet - DEBUG - 
+2022-10-10 15:31:50,670 - mininet - DEBUG - *** c0 : ('wait %/usr/bin/ovs-testcontroller',)
+
+2022-10-10 15:31:50,673 - mininet - DEBUG - 
+2022-10-10 15:31:50,673 - mininet - INFO - 
+
+2022-10-10 15:31:50,675 - mininet - INFO - *** Stopping 4 terms
+
+2022-10-10 15:31:50,691 - mininet - DEBUG - *** errRun: ['pkill', '-9', '-f', 'mnexec.*socat'] 
+
+2022-10-10 15:31:50,745 - mininet - DEBUG -   1
+2022-10-10 15:31:50,746 - mininet - INFO - *** Stopping 4 links
+
+2022-10-10 15:31:50,746 - mininet - INFO - .
+2022-10-10 15:31:50,746 - mininet - DEBUG - *** attacker : ('ip link del attacker-eth0',)
+
+2022-10-10 15:31:51,067 - mininet - DEBUG - 
+2022-10-10 15:31:51,067 - mininet - DEBUG - *** s1 : ('ip link del s1-eth4',)
+
+2022-10-10 15:31:51,077 - mininet - DEBUG - Cannot find device "s1-eth4"
+
+2022-10-10 15:31:51,077 - mininet - INFO - .
+2022-10-10 15:31:51,077 - mininet - DEBUG - *** plc0 : ('ip link del plc0-eth0',)
+
+2022-10-10 15:31:51,125 - mininet - DEBUG - 
+2022-10-10 15:31:51,125 - mininet - DEBUG - *** s1 : ('ip link del s1-eth1',)
+
+2022-10-10 15:31:51,151 - mininet - DEBUG - Cannot find device "s1-eth1"
+2022-10-10 15:31:51,151 - mininet - DEBUG - 
+
+2022-10-10 15:31:51,152 - mininet - INFO - .
+2022-10-10 15:31:51,152 - mininet - DEBUG - *** plc1 : ('ip link del plc1-eth0',)
+
+2022-10-10 15:31:51,197 - mininet - DEBUG - 
+2022-10-10 15:31:51,197 - mininet - DEBUG - *** s1 : ('ip link del s1-eth2',)
+
+2022-10-10 15:31:51,222 - mininet - DEBUG - Cannot find device "s1-eth2"
+2022-10-10 15:31:51,223 - mininet - DEBUG - 
+
+2022-10-10 15:31:51,225 - mininet - INFO - .
+2022-10-10 15:31:51,225 - mininet - DEBUG - *** plc2 : ('ip link del plc2-eth0',)
+
+2022-10-10 15:31:51,515 - mininet - DEBUG - 
+2022-10-10 15:31:51,516 - mininet - DEBUG - *** s1 : ('ip link del s1-eth3',)
+
+2022-10-10 15:31:51,538 - mininet - DEBUG - Cannot find device "s1-eth3"
+2022-10-10 15:31:51,539 - mininet - DEBUG - 
+
+2022-10-10 15:31:51,540 - mininet - DEBUG - 
+2022-10-10 15:31:51,542 - mininet - INFO - 
+
+2022-10-10 15:31:51,543 - mininet - INFO - *** Stopping 1 switches
+
+2022-10-10 15:31:51,546 - mininet - DEBUG - *** errRun: ['ovs-vsctl', '--if-exists', 'del-br', 's1'] 
+
+2022-10-10 15:31:51,634 - mininet - DEBUG -   0
+2022-10-10 15:31:51,635 - mininet - DEBUG - *** errRun: ['kill', '-HUP', '17533'] 
+
+2022-10-10 15:31:51,658 - mininet - DEBUG -   0
+2022-10-10 15:31:51,659 - mininet - INFO - s1 
+2022-10-10 15:31:51,659 - mininet - INFO - 
+
+2022-10-10 15:31:51,659 - mininet - INFO - *** Stopping 4 hosts
+
+2022-10-10 15:31:51,659 - mininet - INFO - attacker 
+2022-10-10 15:31:51,660 - mininet - INFO - plc0 
+2022-10-10 15:31:51,662 - mininet - INFO - plc1 
+2022-10-10 15:31:51,662 - mininet - INFO - plc2 
+2022-10-10 15:31:51,662 - mininet - INFO - 
+*** Done
+

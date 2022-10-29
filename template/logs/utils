@@ -1,0 +1,112 @@
+2022-10-10 09:19:41,108 - mininet - Level 25 - plc1 
+2022-10-10 09:19:41,108 - mininet - Level 25 - 
+
+2022-10-10 09:19:41,109 - mininet - Level 25 - *** Results: 0% dropped (12/12 received)
+
+2022-10-10 09:19:41,117 - mininet - INFO - *** Starting CLI:
+
+2022-10-10 09:19:41,123 - mininet - DEBUG - *** errRun: ['stty', 'echo', 'sane', 'intr', '^C'] 
+
+2022-10-10 09:19:41,125 - mininet - DEBUG -   0
+2022-10-10 09:19:43,731 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2022-10-10 09:19:43,741 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2022-10-10 09:19:43,753 - mininet - DEBUG - _popen ['mnexec', '-da', '17528', 'xterm', '-title', '"Node: plc2"', '-display', ':0', '-e', 'env TERM=ansi bash'] 17645
+2022-10-10 09:19:52,981 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2022-10-10 09:19:52,984 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2022-10-10 09:19:52,986 - mininet - DEBUG - _popen ['mnexec', '-da', '17526', 'xterm', '-title', '"Node: plc1"', '-display', ':0', '-e', 'env TERM=ansi bash'] 17692
+2022-10-10 09:20:00,672 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2022-10-10 09:20:00,696 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2022-10-10 09:20:00,709 - mininet - DEBUG - _popen ['mnexec', '-da', '17524', 'xterm', '-title', '"Node: plc0"', '-display', ':0', '-e', 'env TERM=ansi bash'] 17762
+2022-10-10 09:20:10,057 - mininet - DEBUG - *** errRun: ['xhost', '+si:localuser:root'] 
+
+2022-10-10 09:20:10,070 - mininet - DEBUG - localuser:root being added to access control list
+  0
+2022-10-10 09:20:10,081 - mininet - DEBUG - _popen ['mnexec', '-da', '17533', 'xterm', '-title', '"Node: s1" (root)', '-display', ':0', '-e', 'env TERM=ansi bash'] 17876
+2022-10-10 15:31:48,931 - mininet - Level 25 - 
+Interrupt
+
+2022-10-10 15:31:48,934 - mininet - DEBUG - *** errRun: ['stty', 'echo', 'sane', 'intr', '^C'] 
+
+2022-10-10 15:31:48,954 - mininet - DEBUG -   0
+2022-10-10 15:31:50,657 - mininet - INFO - *** Stopping 1 controllers
+
+2022-10-10 15:31:50,658 - mininet - INFO - c0 
+2022-10-10 15:31:50,658 - mininet - DEBUG - *** c0 : ('kill %/usr/bin/ovs-testcontroller',)
+
+2022-10-10 15:31:50,667 - mininet - DEBUG - 
+2022-10-10 15:31:50,670 - mininet - DEBUG - *** c0 : ('wait %/usr/bin/ovs-testcontroller',)
+
+2022-10-10 15:31:50,673 - mininet - DEBUG - 
+2022-10-10 15:31:50,673 - mininet - INFO - 
+
+2022-10-10 15:31:50,675 - mininet - INFO - *** Stopping 4 terms
+
+2022-10-10 15:31:50,691 - mininet - DEBUG - *** errRun: ['pkill', '-9', '-f', 'mnexec.*socat'] 
+
+2022-10-10 15:31:50,745 - mininet - DEBUG -   1
+2022-10-10 15:31:50,746 - mininet - INFO - *** Stopping 4 links
+
+2022-10-10 15:31:50,746 - mininet - INFO - .
+2022-10-10 15:31:50,746 - mininet - DEBUG - *** attacker : ('ip link del attacker-eth0',)
+
+2022-10-10 15:31:51,067 - mininet - DEBUG - 
+2022-10-10 15:31:51,067 - mininet - DEBUG - *** s1 : ('ip link del s1-eth4',)
+
+2022-10-10 15:31:51,077 - mininet - DEBUG - Cannot find device "s1-eth4"
+
+2022-10-10 15:31:51,077 - mininet - INFO - .
+2022-10-10 15:31:51,077 - mininet - DEBUG - *** plc0 : ('ip link del plc0-eth0',)
+
+2022-10-10 15:31:51,125 - mininet - DEBUG - 
+2022-10-10 15:31:51,125 - mininet - DEBUG - *** s1 : ('ip link del s1-eth1',)
+
+2022-10-10 15:31:51,151 - mininet - DEBUG - Cannot find device "s1-eth1"
+2022-10-10 15:31:51,151 - mininet - DEBUG - 
+
+2022-10-10 15:31:51,152 - mininet - INFO - .
+2022-10-10 15:31:51,152 - mininet - DEBUG - *** plc1 : ('ip link del plc1-eth0',)
+
+2022-10-10 15:31:51,197 - mininet - DEBUG - 
+2022-10-10 15:31:51,197 - mininet - DEBUG - *** s1 : ('ip link del s1-eth2',)
+
+2022-10-10 15:31:51,222 - mininet - DEBUG - Cannot find device "s1-eth2"
+2022-10-10 15:31:51,223 - mininet - DEBUG - 
+
+2022-10-10 15:31:51,225 - mininet - INFO - .
+2022-10-10 15:31:51,225 - mininet - DEBUG - *** plc2 : ('ip link del plc2-eth0',)
+
+2022-10-10 15:31:51,515 - mininet - DEBUG - 
+2022-10-10 15:31:51,516 - mininet - DEBUG - *** s1 : ('ip link del s1-eth3',)
+
+2022-10-10 15:31:51,538 - mininet - DEBUG - Cannot find device "s1-eth3"
+2022-10-10 15:31:51,539 - mininet - DEBUG - 
+
+2022-10-10 15:31:51,540 - mininet - DEBUG - 
+2022-10-10 15:31:51,542 - mininet - INFO - 
+
+2022-10-10 15:31:51,543 - mininet - INFO - *** Stopping 1 switches
+
+2022-10-10 15:31:51,546 - mininet - DEBUG - *** errRun: ['ovs-vsctl', '--if-exists', 'del-br', 's1'] 
+
+2022-10-10 15:31:51,634 - mininet - DEBUG -   0
+2022-10-10 15:31:51,635 - mininet - DEBUG - *** errRun: ['kill', '-HUP', '17533'] 
+
+2022-10-10 15:31:51,658 - mininet - DEBUG -   0
+2022-10-10 15:31:51,659 - mininet - INFO - s1 
+2022-10-10 15:31:51,659 - mininet - INFO - 
+
+2022-10-10 15:31:51,659 - mininet - INFO - *** Stopping 4 hosts
+
+2022-10-10 15:31:51,659 - mininet - INFO - attacker 
+2022-10-10 15:31:51,660 - mininet - INFO - plc0 
+2022-10-10 15:31:51,662 - mininet - INFO - plc1 
+2022-10-10 15:31:51,662 - mininet - INFO - plc2 
+2022-10-10 15:31:51,662 - mininet - INFO - 
+*** Done
+

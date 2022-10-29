@@ -1,0 +1,433 @@
+2022-10-03 15:00:41,293 - mininet - DEBUG - 
+
+2022-10-03 15:00:41,294 - mininet - DEBUG - tcp        0      0 127.0.0.1:45252         127.0.0.1:6653          TIME_WAIT   -                   
+2022-10-03 15:00:41,294 - mininet - DEBUG - 
+
+2022-10-03 15:00:41,294 - mininet - DEBUG - tcp6       0      0 ::1:631                 :::*                    LISTEN      9479/cupsd          
+2022-10-03 15:00:41,295 - mininet - DEBUG - 
+
+2022-10-03 15:00:41,295 - mininet - DEBUG - 
+2022-10-03 15:00:47,108 - mininet - DEBUG - *** errRun: ['grep', '-c', 'processor', '/proc/cpuinfo'] 
+
+2022-10-03 15:00:47,110 - mininet - DEBUG - 1
+  0
+2022-10-03 15:00:47,110 - mininet - DEBUG - *** Setting resource limits
+
+2022-10-03 15:00:47,111 - mininet - INFO - *** Creating network
+
+2022-10-03 15:00:47,111 - mininet - INFO - *** Adding controller
+
+2022-10-03 15:00:47,111 - mininet - DEBUG - *** errRun: ['which', 'controller'] 
+
+2022-10-03 15:00:47,113 - mininet - DEBUG -   1
+2022-10-03 15:00:47,117 - mininet - DEBUG - *** errRun: ['which', 'ovs-controller'] 
+
+2022-10-03 15:00:47,120 - mininet - DEBUG -   1
+2022-10-03 15:00:47,120 - mininet - DEBUG - *** errRun: ['which', 'test-controller'] 
+
+2022-10-03 15:00:47,122 - mininet - DEBUG -   1
+2022-10-03 15:00:47,122 - mininet - DEBUG - *** errRun: ['which', 'ovs-testcontroller'] 
+
+2022-10-03 15:00:47,124 - mininet - DEBUG - /usr/bin/ovs-testcontroller
+  0
+2022-10-03 15:00:47,124 - mininet - DEBUG - *** errRun: ['which', 'ovs-controller'] 
+
+2022-10-03 15:00:47,126 - mininet - DEBUG -   1
+2022-10-03 15:00:47,127 - mininet - DEBUG - *** errRun: ['which', 'test-controller'] 
+
+2022-10-03 15:00:47,128 - mininet - DEBUG -   1
+2022-10-03 15:00:47,129 - mininet - DEBUG - *** errRun: ['which', 'ovs-testcontroller'] 
+
+2022-10-03 15:00:47,130 - mininet - DEBUG - /usr/bin/ovs-testcontroller
+  0
+2022-10-03 15:00:47,131 - mininet - DEBUG - *** errRun: ['which', 'mnexec'] 
+
+2022-10-03 15:00:47,132 - mininet - DEBUG - /usr/bin/mnexec
+  0
+2022-10-03 15:00:47,133 - mininet - DEBUG - *** errRun: ['which', 'ifconfig'] 
+
+2022-10-03 15:00:47,134 - mininet - DEBUG - /sbin/ifconfig
+  0
+2022-10-03 15:00:47,136 - mininet - DEBUG - _popen ['mnexec', '-cd', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:c0'] 10764
+2022-10-03 15:00:47,145 - mininet - DEBUG - *** c0 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-10-03 15:00:47,146 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-10-03 15:00:47,152 - mininet - DEBUG - 
+2022-10-03 15:00:47,153 - mininet - DEBUG - *** errRun: ['which', 'telnet'] 
+
+2022-10-03 15:00:47,155 - mininet - DEBUG - /usr/bin/telnet
+  0
+2022-10-03 15:00:47,156 - mininet - DEBUG - *** c0 : ('echo A | telnet -e A 127.0.0.1 6653',)
+
+2022-10-03 15:00:47,158 - mininet - DEBUG - Telnet escape character is 'A'.
+2022-10-03 15:00:47,158 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,158 - mininet - DEBUG - Trying 127.0.0.1...
+2022-10-03 15:00:47,159 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,159 - mininet - DEBUG - telnet: Unable to connect to remote host: Connection refused
+2022-10-03 15:00:47,159 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,160 - mininet - DEBUG - 
+2022-10-03 15:00:47,160 - mininet - INFO - *** Adding hosts:
+
+2022-10-03 15:00:47,160 - mininet - DEBUG - *** errRun: ['which', 'mnexec'] 
+
+2022-10-03 15:00:47,162 - mininet - DEBUG - /usr/bin/mnexec
+  0
+2022-10-03 15:00:47,163 - mininet - DEBUG - *** errRun: ['which', 'ifconfig'] 
+
+2022-10-03 15:00:47,165 - mininet - DEBUG - /sbin/ifconfig
+  0
+2022-10-03 15:00:47,167 - mininet - DEBUG - _popen ['mnexec', '-cdn', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:attacker'] 10771
+2022-10-03 15:00:47,189 - mininet - DEBUG - *** attacker : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-10-03 15:00:47,190 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-10-03 15:00:47,191 - mininet - DEBUG - 
+2022-10-03 15:00:47,191 - mininet - INFO - attacker 
+2022-10-03 15:00:47,193 - mininet - DEBUG - _popen ['mnexec', '-cdn', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:plc0'] 10776
+2022-10-03 15:00:47,204 - mininet - DEBUG - *** plc0 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-10-03 15:00:47,205 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-10-03 15:00:47,206 - mininet - DEBUG - 
+2022-10-03 15:00:47,206 - mininet - INFO - plc0 
+2022-10-03 15:00:47,208 - mininet - DEBUG - _popen ['mnexec', '-cdn', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:plc1'] 10778
+2022-10-03 15:00:47,217 - mininet - DEBUG - *** plc1 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-10-03 15:00:47,218 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-10-03 15:00:47,224 - mininet - DEBUG - 
+2022-10-03 15:00:47,224 - mininet - INFO - plc1 
+2022-10-03 15:00:47,226 - mininet - DEBUG - _popen ['mnexec', '-cdn', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:plc2'] 10780
+2022-10-03 15:00:47,235 - mininet - DEBUG - *** plc2 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-10-03 15:00:47,235 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-10-03 15:00:47,237 - mininet - DEBUG - 
+2022-10-03 15:00:47,237 - mininet - INFO - plc2 
+2022-10-03 15:00:47,237 - mininet - INFO - 
+*** Adding switches:
+
+2022-10-03 15:00:47,237 - mininet - DEBUG - *** errRun: ['which', 'ovs-vsctl'] 
+
+2022-10-03 15:00:47,239 - mininet - DEBUG - /usr/bin/ovs-vsctl
+  0
+2022-10-03 15:00:47,240 - mininet - DEBUG - *** errRun: ['ovs-vsctl', '-t', '1', 'show'] 
+
+2022-10-03 15:00:47,248 - mininet - DEBUG - 25b05562-1e7e-4a01-8fc9-2b2c266bd719
+    Bridge "s1"
+        Controller "tcp:127.0.0.1:6653"
+        fail_mode: secure
+        Port "s1-eth1"
+            Interface "s1-eth1"
+                error: "could not open network device s1-eth1 (No such device)"
+        Port "s1-eth4"
+            Interface "s1-eth4"
+                error: "could not open network device s1-eth4 (No such device)"
+        Port "s1-eth2"
+            Interface "s1-eth2"
+                error: "could not open network device s1-eth2 (No such device)"
+        Port "s1-eth3"
+            Interface "s1-eth3"
+                error: "could not open network device s1-eth3 (No such device)"
+        Port "s1"
+            Interface "s1"
+                type: internal
+    ovs_version: "2.9.8"
+  0
+2022-10-03 15:00:47,252 - mininet - DEBUG - *** errRun: ['ovs-vsctl', '--version'] 
+
+2022-10-03 15:00:47,255 - mininet - DEBUG - ovs-vsctl (Open vSwitch) 2.9.8
+DB Schema 7.15.1
+  0
+2022-10-03 15:00:47,257 - mininet - DEBUG - _popen ['mnexec', '-cd', 'env', 'PS1=\x7f', 'bash', '--norc', '--noediting', '-is', 'mininet:s1'] 10785
+2022-10-03 15:00:47,268 - mininet - DEBUG - *** s1 : ('unset HISTFILE; stty -echo; set +m',)
+
+2022-10-03 15:00:47,269 - mininet - DEBUG - unset HISTFILE; stty -echo; set +m
+
+2022-10-03 15:00:47,270 - mininet - DEBUG - 
+2022-10-03 15:00:47,271 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,271 - mininet - DEBUG - added intf lo (0) to node s1
+
+2022-10-03 15:00:47,271 - mininet - DEBUG - *** s1 : ('ifconfig', 'lo', 'up')
+
+2022-10-03 15:00:47,276 - mininet - DEBUG - 
+2022-10-03 15:00:47,277 - mininet - INFO - s1 
+2022-10-03 15:00:47,277 - mininet - INFO - 
+*** Adding links:
+
+2022-10-03 15:00:47,277 - mininet - DEBUG - *** attacker : ('ip link add name attacker-eth0 address 92:da:42:5d:3a:35 type veth peer name s1-eth4 address ea:59:7b:b1:ff:48 netns 10785',)
+
+2022-10-03 15:00:47,297 - mininet - DEBUG - 
+2022-10-03 15:00:47,297 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,298 - mininet - DEBUG - added intf attacker-eth0 (0) to node attacker
+
+2022-10-03 15:00:47,301 - mininet - DEBUG - moving attacker-eth0 into namespace for attacker 
+
+2022-10-03 15:00:47,308 - mininet - DEBUG - *** attacker : ('ifconfig', 'attacker-eth0', 'up')
+
+2022-10-03 15:00:47,320 - mininet - DEBUG - 
+2022-10-03 15:00:47,320 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,320 - mininet - DEBUG - added intf s1-eth4 (4) to node s1
+
+2022-10-03 15:00:47,321 - mininet - DEBUG - *** s1 : ('ifconfig', 's1-eth4', 'up')
+
+2022-10-03 15:00:47,325 - mininet - DEBUG - 
+2022-10-03 15:00:47,325 - mininet - INFO - (attacker, s1) 
+2022-10-03 15:00:47,326 - mininet - DEBUG - *** plc0 : ('ip link add name plc0-eth0 address 8e:97:db:b7:0d:eb type veth peer name s1-eth1 address ba:c9:fa:7d:12:b1 netns 10785',)
+
+2022-10-03 15:00:47,329 - mininet - DEBUG - 
+2022-10-03 15:00:47,335 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,347 - mininet - DEBUG - added intf plc0-eth0 (0) to node plc0
+
+2022-10-03 15:00:47,349 - mininet - DEBUG - moving plc0-eth0 into namespace for plc0 
+
+2022-10-03 15:00:47,350 - mininet - DEBUG - *** plc0 : ('ifconfig', 'plc0-eth0', 'up')
+
+2022-10-03 15:00:47,354 - mininet - DEBUG - 
+2022-10-03 15:00:47,355 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,356 - mininet - DEBUG - added intf s1-eth1 (1) to node s1
+
+2022-10-03 15:00:47,357 - mininet - DEBUG - *** s1 : ('ifconfig', 's1-eth1', 'up')
+
+2022-10-03 15:00:47,361 - mininet - DEBUG - 
+2022-10-03 15:00:47,363 - mininet - INFO - (plc0, s1) 
+2022-10-03 15:00:47,368 - mininet - DEBUG - *** plc1 : ('ip link add name plc1-eth0 address b6:23:26:80:a6:0b type veth peer name s1-eth2 address fa:77:99:37:35:da netns 10785',)
+
+2022-10-03 15:00:47,391 - mininet - DEBUG - 
+2022-10-03 15:00:47,391 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,391 - mininet - DEBUG - added intf plc1-eth0 (0) to node plc1
+
+2022-10-03 15:00:47,391 - mininet - DEBUG - moving plc1-eth0 into namespace for plc1 
+
+2022-10-03 15:00:47,392 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', 'up')
+
+2022-10-03 15:00:47,394 - mininet - DEBUG - 
+2022-10-03 15:00:47,396 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,396 - mininet - DEBUG - added intf s1-eth2 (2) to node s1
+
+2022-10-03 15:00:47,397 - mininet - DEBUG - *** s1 : ('ifconfig', 's1-eth2', 'up')
+
+2022-10-03 15:00:47,409 - mininet - DEBUG - 
+2022-10-03 15:00:47,409 - mininet - INFO - (plc1, s1) 
+2022-10-03 15:00:47,409 - mininet - DEBUG - *** plc2 : ('ip link add name plc2-eth0 address 12:c4:e2:52:8f:ca type veth peer name s1-eth3 address 5e:3c:b0:b8:a1:9e netns 10785',)
+
+2022-10-03 15:00:47,413 - mininet - DEBUG - 
+2022-10-03 15:00:47,414 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,414 - mininet - DEBUG - added intf plc2-eth0 (0) to node plc2
+
+2022-10-03 15:00:47,419 - mininet - DEBUG - moving plc2-eth0 into namespace for plc2 
+
+2022-10-03 15:00:47,421 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', 'up')
+
+2022-10-03 15:00:47,425 - mininet - DEBUG - 
+2022-10-03 15:00:47,432 - mininet - DEBUG - 
+
+2022-10-03 15:00:47,437 - mininet - DEBUG - added intf s1-eth3 (3) to node s1
+
+2022-10-03 15:00:47,437 - mininet - DEBUG - *** s1 : ('ifconfig', 's1-eth3', 'up')
+
+2022-10-03 15:00:47,443 - mininet - DEBUG - 
+2022-10-03 15:00:47,443 - mininet - INFO - (plc2, s1) 
+2022-10-03 15:00:47,444 - mininet - INFO - 
+
+2022-10-03 15:00:47,444 - mininet - INFO - *** Configuring hosts
+
+2022-10-03 15:00:47,444 - mininet - INFO - attacker 
+2022-10-03 15:00:47,444 - mininet - DEBUG - *** attacker : ('ifconfig', 'attacker-eth0', 'down')
+
+2022-10-03 15:00:47,449 - mininet - DEBUG - 
+2022-10-03 15:00:47,449 - mininet - DEBUG - *** attacker : ('ifconfig', 'attacker-eth0', 'hw', 'ether', 'AA:AA:AA:AA:AA:AA')
+
+2022-10-03 15:00:47,452 - mininet - DEBUG - 
+2022-10-03 15:00:47,453 - mininet - DEBUG - *** attacker : ('ifconfig', 'attacker-eth0', 'up')
+
+2022-10-03 15:00:47,455 - mininet - DEBUG - 
+2022-10-03 15:00:47,457 - mininet - DEBUG - *** attacker : ('ifconfig', 'attacker-eth0', '192.168.56.110/24', 'up')
+
+2022-10-03 15:00:47,467 - mininet - DEBUG - 
+2022-10-03 15:00:47,468 - mininet - DEBUG - *** attacker : ('ifconfig lo up',)
+
+2022-10-03 15:00:47,469 - mininet - DEBUG - 
+2022-10-03 15:00:47,469 - mininet - INFO - plc0 
+2022-10-03 15:00:47,469 - mininet - DEBUG - *** plc0 : ('ifconfig', 'plc0-eth0', 'down')
+
+2022-10-03 15:00:47,472 - mininet - DEBUG - 
+2022-10-03 15:00:47,473 - mininet - DEBUG - *** plc0 : ('ifconfig', 'plc0-eth0', 'hw', 'ether', '00:1D:9C:C6:A0:60')
+
+2022-10-03 15:00:47,478 - mininet - DEBUG - 
+2022-10-03 15:00:47,479 - mininet - DEBUG - *** plc0 : ('ifconfig', 'plc0-eth0', 'up')
+
+2022-10-03 15:00:47,482 - mininet - DEBUG - 
+2022-10-03 15:00:47,483 - mininet - DEBUG - *** plc0 : ('ifconfig', 'plc0-eth0', '192.168.56.105/24', 'up')
+
+2022-10-03 15:00:47,486 - mininet - DEBUG - 
+2022-10-03 15:00:47,488 - mininet - DEBUG - *** plc0 : ('ifconfig lo up',)
+
+2022-10-03 15:00:47,489 - mininet - DEBUG - 
+2022-10-03 15:00:47,491 - mininet - INFO - plc1 
+2022-10-03 15:00:47,492 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', 'down')
+
+2022-10-03 15:00:47,502 - mininet - DEBUG - 
+2022-10-03 15:00:47,502 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', 'hw', 'ether', '00:1D:9C:C7:B0:70')
+
+2022-10-03 15:00:47,505 - mininet - DEBUG - 
+2022-10-03 15:00:47,506 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', 'up')
+
+2022-10-03 15:00:47,510 - mininet - DEBUG - 
+2022-10-03 15:00:47,510 - mininet - DEBUG - *** plc1 : ('ifconfig', 'plc1-eth0', '192.168.56.106/24', 'up')
+
+2022-10-03 15:00:47,511 - mininet - DEBUG - 
+2022-10-03 15:00:47,512 - mininet - DEBUG - *** plc1 : ('ifconfig lo up',)
+
+2022-10-03 15:00:47,513 - mininet - DEBUG - 
+2022-10-03 15:00:47,513 - mininet - INFO - plc2 
+2022-10-03 15:00:47,513 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', 'down')
+
+2022-10-03 15:00:47,517 - mininet - DEBUG - 
+2022-10-03 15:00:47,517 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', 'hw', 'ether', '00:1D:9C:C8:BC:46')
+
+2022-10-03 15:00:47,518 - mininet - DEBUG - 
+2022-10-03 15:00:47,519 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', 'up')
+
+2022-10-03 15:00:47,522 - mininet - DEBUG - 
+2022-10-03 15:00:47,522 - mininet - DEBUG - *** plc2 : ('ifconfig', 'plc2-eth0', '192.168.56.107/24', 'up')
+
+2022-10-03 15:00:47,523 - mininet - DEBUG - 
+2022-10-03 15:00:47,524 - mininet - DEBUG - *** plc2 : ('ifconfig lo up',)
+
+2022-10-03 15:00:47,528 - mininet - DEBUG - 
+2022-10-03 15:00:47,529 - mininet - INFO - 
+
+2022-10-03 15:00:47,529 - mininet - INFO - *** Starting controller
+
+2022-10-03 15:00:47,529 - mininet - INFO - c0 
+2022-10-03 15:00:47,529 - mininet - DEBUG - *** errRun: ['which', '/usr/bin/ovs-testcontroller'] 
+
+2022-10-03 15:00:47,532 - mininet - DEBUG - /usr/bin/ovs-testcontroller
+  0
+2022-10-03 15:00:47,532 - mininet - DEBUG - *** c0 : ('/usr/bin/ovs-testcontroller ptcp:6653 1>/tmp/c0.log 2>/tmp/c0.log &',)
+
+2022-10-03 15:00:47,533 - mininet - DEBUG - 
+2022-10-03 15:00:47,533 - mininet - INFO - 
+
+2022-10-03 15:00:47,534 - mininet - INFO - *** Starting 1 switches
+
+2022-10-03 15:00:47,534 - mininet - INFO - s1 
+2022-10-03 15:00:47,534 - mininet - INFO - ...
+2022-10-03 15:00:47,534 - mininet - DEBUG - *** errRun: ovs-vsctl -- --id=@s1c0 create Controller target=\"tcp:127.0.0.1:6653\" max_backoff=1000 -- --if-exists del-br s1 -- add-br s1 -- set bridge s1 controller=[@s1c0] other_config:datapath-id=0000000000000001 fail_mode=secure other-config:disable-in-band=true other-config:dp-desc=s1 -- add-port s1 s1-eth1 -- set Interface s1-eth1 ofport_request=1 -- add-port s1 s1-eth2 -- set Interface s1-eth2 ofport_request=2 -- add-port s1 s1-eth3 -- set Interface s1-eth3 ofport_request=3 -- add-port s1 s1-eth4 -- set Interface s1-eth4 ofport_request=4 
+
+2022-10-03 15:00:47,543 - mininet - DEBUG - df312c94-3026-45ec-9e26-4dce3b41fd81
+  0
+2022-10-03 15:00:47,544 - mininet - INFO - 
+
+2022-10-03 15:00:47,544 - mininet - Level 25 - *** Ping: testing ping reachability
+
+2022-10-03 15:00:47,544 - mininet - Level 25 - attacker -> 
+2022-10-03 15:00:47,545 - mininet - DEBUG - *** attacker : ('LANG=C ping -c1  192.168.56.105',)
+
+2022-10-03 15:00:47,561 - mininet - DEBUG - PING 192.168.56.105 (192.168.56.105) 56(84) bytes of data.
+2022-10-03 15:00:47,561 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,562 - mininet - DEBUG - 64 bytes from 192.168.56.105: icmp_seq=1 ttl=64 time=1000 ms
+2022-10-03 15:00:48,563 - mininet - DEBUG - 
+
+--- 192.168.56.105 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1000.393/1000.393/1000.393/0.000 ms
+
+2022-10-03 15:00:48,563 - mininet - Level 25 - plc0 
+2022-10-03 15:00:48,564 - mininet - DEBUG - *** attacker : ('LANG=C ping -c1  192.168.56.106',)
+
+2022-10-03 15:00:48,565 - mininet - DEBUG - PING 192.168.56.106 (192.168.56.106) 56(84) bytes of data.
+2022-10-03 15:00:48,565 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,566 - mininet - DEBUG - 64 bytes from 192.168.56.106: icmp_seq=1 ttl=64 time=1.07 ms
+2022-10-03 15:00:48,567 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,567 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,567 - mininet - DEBUG - --- 192.168.56.106 ping statistics ---
+2022-10-03 15:00:48,567 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,567 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-03 15:00:48,568 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,568 - mininet - DEBUG - rtt min/avg/max/mdev = 1.070/1.070/1.070/0.000 ms
+2022-10-03 15:00:48,568 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,568 - mininet - DEBUG - 
+2022-10-03 15:00:48,569 - mininet - Level 25 - plc1 
+2022-10-03 15:00:48,569 - mininet - DEBUG - *** attacker : ('LANG=C ping -c1  192.168.56.107',)
+
+2022-10-03 15:00:48,570 - mininet - DEBUG - PING 192.168.56.107 (192.168.56.107) 56(84) bytes of data.
+2022-10-03 15:00:48,571 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,572 - mininet - DEBUG - 64 bytes from 192.168.56.107: icmp_seq=1 ttl=64 time=1.14 ms
+2022-10-03 15:00:48,572 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,573 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,574 - mininet - DEBUG - --- 192.168.56.107 ping statistics ---
+2022-10-03 15:00:48,574 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,575 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-03 15:00:48,575 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,576 - mininet - DEBUG - rtt min/avg/max/mdev = 1.143/1.143/1.143/0.000 ms
+2022-10-03 15:00:48,576 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,576 - mininet - DEBUG - 
+2022-10-03 15:00:48,576 - mininet - Level 25 - plc2 
+2022-10-03 15:00:48,577 - mininet - Level 25 - 
+
+2022-10-03 15:00:48,577 - mininet - Level 25 - plc0 -> 
+2022-10-03 15:00:48,577 - mininet - DEBUG - *** plc0 : ('LANG=C ping -c1  192.168.56.110',)
+
+2022-10-03 15:00:48,578 - mininet - DEBUG - PING 192.168.56.110 (192.168.56.110) 56(84) bytes of data.
+2022-10-03 15:00:48,578 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,580 - mininet - DEBUG - 64 bytes from 192.168.56.110: icmp_seq=1 ttl=64 time=1.08 ms
+2022-10-03 15:00:48,580 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,580 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,581 - mininet - DEBUG - --- 192.168.56.110 ping statistics ---
+2022-10-03 15:00:48,581 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,581 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-03 15:00:48,581 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,581 - mininet - DEBUG - rtt min/avg/max/mdev = 1.085/1.085/1.085/0.000 ms
+2022-10-03 15:00:48,582 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,582 - mininet - DEBUG - 
+2022-10-03 15:00:48,582 - mininet - Level 25 - attacker 
+2022-10-03 15:00:48,582 - mininet - DEBUG - *** plc0 : ('LANG=C ping -c1  192.168.56.106',)
+
+2022-10-03 15:00:48,583 - mininet - DEBUG - PING 192.168.56.106 (192.168.56.106) 56(84) bytes of data.
+2022-10-03 15:00:48,584 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,585 - mininet - DEBUG - 64 bytes from 192.168.56.106: icmp_seq=1 ttl=64 time=1.14 ms
+2022-10-03 15:00:48,585 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,585 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,586 - mininet - DEBUG - --- 192.168.56.106 ping statistics ---
+2022-10-03 15:00:48,587 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,587 - mininet - DEBUG - 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+2022-10-03 15:00:48,587 - mininet - DEBUG - 
+
+2022-10-03 15:00:48,587 - mininet - DEBUG - rtt min/avg/max/mdev = 1.140/1.140/1.140/0.000 ms
