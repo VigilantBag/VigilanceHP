@@ -20,7 +20,7 @@ CREATE TABLE swat_s1 (
 
 SCHEMA_INIT = """
     INSERT INTO swat_s1 VALUES ('L001', 0, '1');
-    INSERT INTO swat_s1 VALUES ('SW001', 0, '1');
+    INSERT INTO swat_s1 VALUES ('SW101', 0, '1');
 """
 
 # Set the state of the network
@@ -51,23 +51,45 @@ PLC0_DATA = {
     'TODO' : 'TODO'
 }
 
+PLC1_DATA = {
+    'TODO' : 'TODO'
+}
+
 # Extract plc0 address from ip
 PLC0_ADDR = IP['plc0']
+
+# Extract plc1 address from ip
+PLC1_ADDR = IP['plc1']
 
 # Information marking which PLC the information is comming from 
 PLC0_TAGS = (
     ('L001', 0, 'INT'),
 )
+PLC1_TAGS = (
+    ('S001', 0, 'INT'),
+)
 
-# Infrastructure for broadcasting information from PLC0 on the network
+# Infrastructure for broadcasting information from PLC0 to the network
 PLC0_SERVER = {
     'address' : PLC0_ADDR,
     'tags' : PLC0_TAGS
 }
 
-# Infrastructure for the protocol PLC0 will use
+# Infrastructure for broadcasting information from PLC1 to the network
+PLC1_SERVER = {
+    'address' : PLC1_ADDR,
+    'tags' : PLC1_TAGS
+}
+# Infrastructure for the protocol PLC0 
 PLC0_PROTOCOL = {
     'name' : 'enip',
     'mode' : 1,
     'server' : PLC0_SERVER
+}
+
+# Infrastructure for the protocol PLC1 
+PLC1_PROTOCOL = {
+    'name' : 'enip',
+    'mode' : 1,
+    'server' : PLC1_SERVER
 }
