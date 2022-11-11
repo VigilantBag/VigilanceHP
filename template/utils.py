@@ -9,6 +9,7 @@ PLC_PERIOD_SEC = 0.04       # plc update period in seconds
 PATH = 'swat_s1_db.sqlite'  # set the path for the sqlite data file
 NAME = 'swat_s1'            # name the network
 
+# set the variable types for each column
 SCHEMA = """
 CREATE TABLE swat_s1 (
     name            TEXT NOT NULL,
@@ -18,6 +19,7 @@ CREATE TABLE swat_s1 (
 );
 """
 
+# insert the intial values into the db
 SCHEMA_INIT = """
     INSERT INTO swat_s1 VALUES ('L001', 0, '1');
     INSERT INTO swat_s1 VALUES ('SW101', 0, '1');
