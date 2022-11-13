@@ -30,48 +30,47 @@ class SwatPLC1(PLC):
             - drives actuators according to the control strategy
             - updates its enip server
         """
-
         print('DEBUG: swat-s1 plc1 enters main_loop.')
         print('\n')
+        count = 0 
 
-        count = 0
+        while count < PLC_SAMPLES:
+           
+            # print the count 
+            print(count)
 
-        while(count <= PLC_SAMPLES):
-            # sw101 recieves it's updated state
-            sw101 = float(self.get(SW101))
-            # sw101 updates the network with it's state
-            self.send(SW101, sw101, PLC1_ADDR)
+            # get the status of the light
+            light_status = int(self.get(L001))
+
+            # get the status of the light switch
+            switch_status = int(self.get(SW101))
             
-            # if the switch is turned on, send the signal to the light to turn on 
-            if SW101 < 1:
-                print('The switch has been turned on.')
-                print('Now the light will be switched on.')
-                
-                # PLC1 informs PLC0 to turn on the light
-                self.set(L001, 1) 
+            print
+            print
+            print("Light status: ", light_status)
+            
+            # The next line changes the orientation of the switch each count to mimic someone flipping it on or off. It can be commented out to pull data from the switch itself rather mimic the switch being turned on or off.
+            switch_status = count % 2
+            print("Switch status: ", switch_status)
+            print
+            print
+
+            # update the network with the status of the switch
+            self.send(SW101, switch_status, PLC1_ADDR)
+
+            if switch_status == 1:
+                print("The light will be switched on.")
+                self.set(L001, 1)
                 self.send(L001, 1, PLC0_ADDR)
-            
-            # if the switch is turned off, send the signal to turn the light off
-            elif SW101 > 0:
-                print('The switch has been turned off.')
-                print('Now the light will be switched off.')
-
-                # PLC1 informs PLC0 to turn off the light
+            else:
+                print("The light will be switched off.")
                 self.set(L001, 0)
                 self.send(L001, 0, PLC0_ADDR)
             
-            # print a separator, increase the count, and sleep for the remainder of the plc period
-            print("***********************************************")
-            time.sleep(PLC_PERIOD_SEC)
-            
-            # turn the light back on
-            self.set(L001, 1)
-            self.send(L001, 1, PLC0_ADDR)
             count += 1
 
-    print('DEBUG swat plc1 shutdown')
-
 # does something...that I don't quite understand yet--possibly with the database
+
 if __name__ == "__main__":
     plc1 = SwatPLC1(
         name='plc1',

@@ -50,11 +50,11 @@ NETMASK = '/24'
 
 # TODO
 PLC0_DATA = {
-    'TODO' : 'TODO'
+    'SW101' : '0'
 }
 
 PLC1_DATA = {
-    'TODO' : 'TODO'
+    'L001' : '0'
 }
 
 # Extract plc0 address from ip
@@ -68,7 +68,7 @@ PLC0_TAGS = (
     ('L001', 0, 'INT'),
 )
 PLC1_TAGS = (
-    ('S001', 0, 'INT'),
+    ('SW101', 0, 'INT'),
 )
 
 # Infrastructure for broadcasting information from PLC0 to the network
