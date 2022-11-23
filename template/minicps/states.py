@@ -173,8 +173,8 @@ class SQLiteState(State):
                     self._what = tuple(what_list)
                     # print 'DEBUG self._what: ', self._what
 
-            except sqlite3.Error, e:
-                print('ERROR: %s: ' % e.args[0])
+            except sqlite3.Error as e:
+                print(('ERROR: %s: ' % e.args[0]))
 
     def _init_get_query(self):
         """Use prepared statement."""
@@ -189,7 +189,7 @@ class SQLiteState(State):
             get_query += ' AND %s = ?' % (
                 pk)
 
-        print ('DEBUG get_query:', get_query)
+        print(('DEBUG get_query:', get_query))
         self._get_query = get_query
 
     def _init_set_query(self):
@@ -205,7 +205,7 @@ class SQLiteState(State):
             set_query += ' AND %s = ?' % (
                 pk)
 
-        print ('DEBUG set_query:', set_query)
+        print(('DEBUG set_query:', set_query))
         self._set_query = set_query
 
     # TODO: return result of cursor.execute
@@ -233,8 +233,8 @@ class SQLiteState(State):
                 conn.commit()
                 return value
 
-            except sqlite3.Error, e:
-                print('_set ERROR: %s: ' % e.args[0])
+            except sqlite3.Error as e:
+                print(('_set ERROR: %s: ' % e.args[0]))
 
     def _get(self, what):
         """Returns the first element of the result tuple."""
@@ -246,8 +246,8 @@ class SQLiteState(State):
                 record = cursor.fetchone()
                 return record[0]
 
-            except sqlite3.Error, e:
-                print('_get ERROR: %s: ' % e.args[0])
+            except sqlite3.Error as e:
+                print(('_get ERROR: %s: ' % e.args[0]))
 
 
 # redis {{{1

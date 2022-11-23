@@ -34,15 +34,15 @@ if __name__ == "__main__":
             help='mode: read or write')
     parser.add_argument('-o', dest='offset', type=int,
             help='0-based modbus addressing offset',
-            choices=range(0,2000),  # NOTE: empirical value
+            choices=list(range(0,2000)),  # NOTE: empirical value
             default=0)
     parser.add_argument('--count', dest='count',
             help='count for multiple read and write',
-            type=int, choices=range(1,2000),  # NOTE: bounds from the standard
+            type=int, choices=list(range(1,2000)),  # NOTE: bounds from the standard
             default=1)
     parser.add_argument('-r', dest='register',
             help='list of int values', type=int,
-            choices=range(0, 65536), nargs='+',
+            choices=list(range(0, 65536)), nargs='+',
             default=0)
     parser.add_argument('-c', dest='coil',
             help='list of 0 (False) or 1 (True) int values', type=int, nargs='+',
@@ -102,28 +102,28 @@ if __name__ == "__main__":
             hr_read = client.read_holding_registers(args.offset,
                 count=args.count)
             assert(hr_read.function_code < 0x80)
-            print(hr_read.registers[0:args.count])
+            print((hr_read.registers[0:args.count]))
 
         # NOTE: read_holding_registers
         elif args.type == 'IR':
             ir_read = client.read_input_registers(args.offset,
                 count=args.count)
             assert(ir_read.function_code < 0x80)
-            print(ir_read.registers[0:args.count])
+            print((ir_read.registers[0:args.count]))
 
         # NOTE: read_discrete_inputs
         elif args.type == 'DI':
             di_read = client.read_discrete_inputs(args.offset,
                 count=args.count)
             assert(di_read.function_code < 0x80)
-            print(di_read.bits)
+            print((di_read.bits))
 
         # NOTE: read_discrete_inputs
         elif args.type == 'CO':
             co_read = client.read_coils(args.offset,
                 count=args.count)
             assert(co_read.function_code < 0x80)
-            print(co_read.bits)
+            print((co_read.bits))
 
 
 

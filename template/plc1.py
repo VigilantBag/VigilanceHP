@@ -34,7 +34,7 @@ class SwatPLC1(PLC):
         print('\n')
         count = 0 
 
-        while count < PLC_SAMPLES:
+        while True:
            
             # print the count 
             print(count)
@@ -45,15 +45,15 @@ class SwatPLC1(PLC):
             # get the status of the light switch
             switch_status = int(self.get(SW101))
             
-            print
-            print
-            print("Light status: ", light_status)
+            print()
+            print()
+            print(("Light status: ", light_status))
             
             # The next line changes the orientation of the switch each count to mimic someone flipping it on or off. It can be commented out to pull data from the switch itself rather mimic the switch being turned on or off.
             switch_status = count % 2
-            print("Switch status: ", switch_status)
-            print
-            print
+            print(("Switch status: ", switch_status))
+            print()
+            print()
 
             # update the network with the status of the switch
             self.send(SW101, switch_status, PLC1_ADDR)

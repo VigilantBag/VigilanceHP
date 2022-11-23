@@ -33,10 +33,9 @@ class swatPLC0(PLC):
         print('\n')
         
         count = 0
-        while (count <= PLC_SAMPLES):
-
+        while (True):
             l001 = float(self.get(L001))
-            print("DEBUG PLC0 - recieved l001: %f" % l001)
+            #print(("DEBUG PLC0 - recieved l001: %f" % l001))
             if l001 != 0:
                 self.send(L001, l001, PLC0_ADDR)
             
