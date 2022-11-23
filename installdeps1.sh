@@ -4,23 +4,21 @@
 # git clone https://github.com/VigilantBag/AICSHP.git 
 
 # install honeyd & dependencies
-sudo apt-get install libevent-dev libdumbnet-dev libpcap-dev libpcre3-dev libedit-dev bison flex libtool automake python2.7 automake build-essential zlibc zlib1g-dev
+sudo apt-get install libevent-dev libdumbnet-dev libpcap-dev libpcre3-dev libedit-dev bison flex libtool automake python3 python3-pip build-essential zlib1g-dev
 
-git clone https://github.com/Nevsor/Honeyd.git --branch fix-python-version-bug
-cd Honeyd/
-bash ./autogen.sh
-bash ./configure
-make 
-sudo make install
-cd ../
+# Install mininet
+sudo apt-get install mininet
 
+# Install minicps 
+pip3 install minicps
+pip3 install testresources
+
+# install modified IHS directory
+cd ./ICSpot/
+git clone https://github.com/VigilantBag/IHS.git
+
+# install flask and flask_socketio
+pip3 install flask
+pip3 install flask-socketio
 # install farpd & fix the script paths so they match the absolute paths of file system
 sudo apt install farpd
-
-# install ICSpot
-#git clone https://github.com/VigilantBag/ICSpot.git
-
-echo ""
-echo "Change ICSpot/honeyd.conf to the actual filepath pointing to the files in the scripts folder (lines 20-22)."
-echo "After that, Run the second install script."
-echo ""
