@@ -25,33 +25,32 @@
     - username: *root*
     - password: *you set this during installation*
 7. In the Proxmox web server:
-    - Open the shell
-    ![](./images/open_shell.png)
+    - [Open the shell](./images/open_shell.png)
 8. Allow Proxmox to utilize more RAM:
     - `$ vim /etc/dphys-swapfile` <-- "console-based" editor will work (vim, nano, etc.)
     - change the value of CONF_SWAPSIZE  **(line 16)** from 100 to either 1024 or 2048 depending on which model pi you're using
 9. Download the Ubuntu 22.04.2 server for arm64 iso in Proxmox:
-    ![](./images/upload_iso.png)
+    - [Upload the iso](./images/upload_iso.png)
     - [Ubuntu Server for Arm64](https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04.2-live-server-arm64.iso)
 10. Create the VM:
-    1. ![](./images/create_vm.png)
+    1. [create the vm](./images/create_vm.png)
     2. Name the VM
-    3. ![](./images/no_media.png) 
-    4. ![](./images/bios.png) 
-    5. ![](./images/disks.png) 
-    6. ![](./images/cpu.png) 
+    3. [OS tab](./images/no_media.png) 
+    4. [System tab](./images/bios.png) 
+    5. [Disks tab](./images/disks.png) 
+    6. [CPU Cores tab](./images/cpu.png) 
     7. Give the VM 2 Gb of RAM
     8. Leave the network settings exactly how they are by default
     9. Confirm your choices
-    10. ![](./images/remove_disk.png)
-    11. ![](./images/add_disk.png)  
-    12. ![](./images/disk_properties.png)
-    13. ![](./images/boot_order.png)
-    14. ![](./images/correct_boot_order.png)
-    15. ![](./images/start.png)
+    10. [Remove the disk](./images/remove_disk.png)
+    11. [Add new disk](./images/add_disk.png)  
+    12. [CD/DVD disk properties](./images/disk_properties.png)
+    13. [Change the boot order](./images/boot_order.png)
+    14. [Boot order properties](./images/correct_boot_order.png)
+    15. [Start the VM](./images/start.png)
 
 11. Ubuntu Server Installation Options:
-    ![](./images/console.png)
+    - [Open the console](./images/console.png)
     - Language
     - Keyboard Layout
     - *Ubuntu Server*
