@@ -1,6 +1,7 @@
 #!/bin/sh
 
-read "Enter the current user's name: " USER_NAME
+echo "Enter the current user's name: "
+read USER_NAME
 
 inotifywait -m /home/$USER_NAME/OpenPLC_v3/webserver/st_files -e create -e moved_to |
         while read dir action file; do
