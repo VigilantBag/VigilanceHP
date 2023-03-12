@@ -7,8 +7,11 @@
 `./installdeps.sh`
 
 Add the following to crontab:
+
 `@reboot bash /etc/inotifyfilechange.sh`
+
 `@reboot bash /etc/start_plc.sh`
+
 Copy start\_plc.sh to /etc/
 
 ### Usage
