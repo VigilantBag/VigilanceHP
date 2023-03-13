@@ -1,15 +1,12 @@
 #!/bin/sh
 
-echo "Enter the current user's name: "
-read USER_NAME
-
-inotifywait -m /home/$USER_NAME/OpenPLC_v3/webserver/st_files -e create -e moved_to |
+inotifywait -m /home/$USER/OpenPLC_v3/webserver/st_files -e create -e moved_to |
         while read dir action file; do
                 echo "$file added"
-                bash /home/$USER_NAME/OpenPLC_v3/webserver/scripts/compile_program.sh $file
+                bash /home/$USER/OpenPLC_v3/webserver/scripts/compile_program.sh $file
                 SQL_AUTOST="UPDATE Settings SET Value = 'true' WHERE Key = 'Start_run_mode';"
                 SQL_SCRIPT="INSERT INTO Programs (Name, Description, File, Date_upload) VALUES ('Test', 'Desc', '$file', strftime('%s', 'now'));"
-                sqlite3 /home/$USER_NAME/OpenPLC_v3/webserver/openplc.db "$SQL_SCRIPT"
-                sqlite3 /home/$USER_NAME/OpenPLC_v3/webserver/openplc.db "$SQL_AUTOST"
+                sqlite3 /home/$USER/OpenPLC_v3/webserver/openplc.db "$SQL_SCRIPT"
+                sqlite3 /home/$USER/OpenPLC_v3/webserver/openplc.db "$SQL_AUTOST"
                 reboot
         done
