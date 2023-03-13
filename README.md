@@ -21,3 +21,7 @@ Web GUI available at [127.0.0.1:8080](127.0.0.1:8080)
 Default login: openplc:openplc
 
 Restart system or VMs to restart PLC
+
+### Scaling
+
+Refer to the [Proxmox guide](https://pve.proxmox.com/wiki/Cluster_Manager)
