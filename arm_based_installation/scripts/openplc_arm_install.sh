@@ -13,12 +13,12 @@ curl https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_inst
 git clone https://github.com/thiagoralves/OpenPLC_v3.git
 
 # Obtain the current user name
-echo "Enter your current user name: "
+echo "Enter your selected user name: "
 read USER_NAME
 
 # Run OpenPLC's installation script
 cd /home/"$USER_NAME"/OpenPLC_v3
-bash /home/$USER_NAME/OpenPLC_v3/install.sh linux
+bash /home/$USER_NAME/OpenPLC_v3/install.sh rpi
 
 # Move and utilize the pre-configured vsftpd file
 cd /home/"$USER_NAME"
