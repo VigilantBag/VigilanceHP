@@ -1,9 +1,16 @@
 # Arm64 (rpi) Pimox and OpenPlc Installation instructions
-## [Pimox Github](https://github.com/pimox/pimox7)
 
-**THIS METHOD WORKS AS OF MARCH 7, 2023**
+**Important Notes**
 
-**YOU MUST USE A PI WITH 4GB OR MORE OF RAM** 
+- [Pimox Github](https://github.com/pimox/pimox7)
+- This works as of March 7, 2023.
+- You must use a pi with 4GB or more of RAM, 8 GB is reccomended. 
+
+---
+
+## Setting Up the Physical Pi and Installing Pimox
+
+---
 
 1. Install Pimox using [Raspberry Pi OS Lite (64-bit)](https://downloads.raspberrypi.org/raspios_oldstable_lite_armhf/images/raspios_oldstable_lite_armhf-2023-02-22/2023-02-21-raspios-buster-armhf-lite.img.xz). **This will _ONLY_ work with the 64-bit lite version** 
 
@@ -31,36 +38,37 @@
     - password: *you set this during installation*
 
 7. In the Proxmox web server:
-    - [Open the shell](./images/open_shell.png)
+    - ![Open the shell](./images/open_shell.png)
 
 8. Allow Proxmox to utilize more RAM:
     - `$ vim /etc/dphys-swapfile` <-- "console-based" editor will work (vim, nano, etc.)
     - change the value of CONF_SWAPSIZE  **(line 16)** from 100 to either 1024 or 2048 depending on which model pi you're using
 
 9. Download the Ubuntu 22.04.2 server for arm64 iso in Proxmox:
-    - [Upload the iso](./images/upload_iso.png)
+    - ![Upload the iso](./images/upload_iso.png)
     - [Ubuntu Server for Arm64](https://cdimage.ubuntu.com/releases/22.04/release/ubuntu-22.04.2-live-server-arm64.iso)
 
 10. Create the VM:
-    1. [create the vm](./images/create_vm.png)
-    2. Name the VM
-    3. [OS tab](./images/no_media.png) 
-    4. [System tab](./images/bios.png) 
-    5. [Disks tab](./images/disks.png) 
-    6. [CPU Cores tab](./images/cpu.png) 
-    7. Give the VM 2 Gb of RAM
-    8. Leave the network settings exactly how they are by default
-    9. Confirm your choices
-    10. [Remove the disk](./images/remove_disk.png)
-    11. [Add new disk](./images/add_disk.png)  
-    12. [CD/DVD disk properties](./images/disk_properties.png)
-    13. [Change the boot order](./images/boot_order.png)
-    14. [Boot order properties](./images/correct_boot_order.png)
-    15. [Start the VM](./images/start.png)
+    - ![create the vm](./images/create_vm.png)
+    - Name the VM
+    - ![OS tab](./images/no_media.png) 
+    - ![System tab](./images/bios.png) 
+    - ![Disks tab](./images/disks.png) 
+    - ![CPU Cores tab](./images/cpu.png) 
+    - Give the VM 2 Gb of RAM
+    - Leave the network settings exactly how they are by default
+    - Confirm your choices
+    - ![Remove the disk](./images/remove_disk.png)
+    - ![Add new disk](./images/add_disk.png)  
+    - ![CD/DVD disk properties](./images/disk_properties.png)
+    - ![Change the boot order](./images/boot_order.png)
+    - ![Boot order properties](./images/correct_boot_order.png)
+    - ![Start the VM](./images/start.png)
 
 11. Ubuntu Server Installation Options:
-    - [Open the console](./images/console.png)
+    - ![Open the console](./images/console.png)
     - **DO NOT INSTALL OPENSSH-SERVER THROUGH THE INSTALL PROMPT**
+        - This breaks the VM for some reason
     - Language
     - Keyboard Layout
     - *Ubuntu Server*
@@ -74,19 +82,22 @@
     - *Install openssh server*
     - No server snaps
 
-12. Stop the VM and change the [boot order](./images/change_boot_order3.png)
+12. Stop the VM and change the ![boot order](./images/change_boot_order3.png)
 
-13. Once the VM reboots, to get OpenPLC running:
-    - `$ sudo apt-get update && sudo apt-get upgrade -y` <-- update and upgrade the VM
-    - `$ sudo apt-get install git` <-- make sure git is installed
-    - `$ git clone https://github.com/thiagoralves/OpenPLC_v3.git` <-- download the OpenPLC repo
-    - `$ cd OpenPLC_v3` <-- go to the folder you just downloaded
-    - `$ ./install.sh rpi` <-- run the install script
-    - `$ ip -a` <-- write down the ip address for this VM
-    - `$ ./start_openplc.sh` <-- start openplc
+---
 
-14. Open http://ip-from-step-12:8080
-    - default login:
-        - username: openplc
-        - password: openplc
+## Installing OpenPLC and Other Requirements
 
+---
+
+### Using the Arm64 Installation Script
+
+1. Download the installation script from github
+    - `$ curl https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/openplc_arm_install.sh > openplc_arm_install.sh` <-- download the custom installation
+
+2. Change the permissions on openplc_arm_install.sh
+    - `$ sudo chmod 755 openplc_arm_install.sh`
+
+3. Run the installation script
+    - `$ bash /home/your-username/openplc_arm_install.sh`
+    - Enter your username and password when prompted

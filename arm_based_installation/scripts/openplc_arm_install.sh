@@ -1,6 +1,9 @@
 #!/bin/bash
+# Prepares the system to run OpenPLC Runtime and run OpenPLC Runtime
 
-# Prepare the system to run OpenPLC Runtime and run OpenPLC Runtime
+# Obtain the current user name
+echo "Enter your selected user name: "
+read USER_NAME
 
 # Update the system, install dependencies, and grab required files
 sudo apt-get update
@@ -10,11 +13,8 @@ curl https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_inst
 curl https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh > inotifyfilechange_arm.sh
 
 # Clone the OpenPLC runtime repo
+cd /home/$USER_NAME
 git clone https://github.com/thiagoralves/OpenPLC_v3.git
-
-# Obtain the current user name
-echo "Enter your selected user name: "
-read USER_NAME
 
 # Run OpenPLC's installation script
 cd /home/"$USER_NAME"/OpenPLC_v3
@@ -56,11 +56,12 @@ sudo chmod 755 inotifyfilechange_arm.sh
 sudo chown root:root inotifyfilechange_arm.sh
 sudo mv /home/"$USER_NAME"/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
 
-# Prompt user to set up crontab
-echo ""
-echo "Add the following to crontab: "
-echo "1 * * * * @reboot bash /etc/inotifyfilechange_arm.sh"
-echo "1 * * * * :@reboot bash /etc/start_plc.sh"
-echo ""
+# Prompt user to set up crontab <-- **SOMETHING IN THIS SECTION BREAKS THINGS, MUST FIX**
+# echo ""
+# echo "The crontab command is: $ crontab -e "
+# echo "Add the following to crontab: "
+# echo "1 * * * * @reboot bash /etc/inotifyfilechange_arm.sh"
+# echo "1 * * * * @reboot bash /etc/start_plc.sh"
+# echo ""
 
-crontab -e
+# crontab -e
