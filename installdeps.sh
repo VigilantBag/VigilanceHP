@@ -15,7 +15,7 @@ echo "Enter your current user name: "
 read USER_NAME
 
 # Clone the OpenPLC runtime repo
-git clone https://github.com/thiagoralves/OpenPLC_v3.git /home/"$USER_NAME"
+git clone https://github.com/thiagoralves/OpenPLC_v3.git /home/"$USER_NAME"/OpenPLC_v3
 
 # Run OpenPLC's installation script
 cd /home/"$USER_NAME"/OpenPLC_v3
