@@ -57,11 +57,11 @@ sudo chown root:root inotifyfilechange_arm.sh
 sudo mv /home/"$USER_NAME"/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
 
 # Prompt user to set up crontab <-- **SOMETHING IN THIS SECTION BREAKS THINGS, MUST FIX**
-# echo ""
-# echo "The crontab command is: $ crontab -e "
-# echo "Add the following to crontab: "
-# echo "1 * * * * @reboot bash /etc/inotifyfilechange_arm.sh"
-# echo "1 * * * * @reboot bash /etc/start_plc.sh"
-# echo ""
+echo ""
+echo "The crontab command is: $ crontab -e "
+echo "Add the following to crontab: "
+echo "5 * * * * @reboot bash /etc/inotifyfilechange_arm.sh"
+echo "5 * * * * @reboot bash /etc/start_plc.sh"
+echo ""
 
-# crontab -e
+sudo crontab -e
