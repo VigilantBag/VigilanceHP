@@ -12,9 +12,13 @@ sudo apt-get install git vsftpd inotify-tools
 curl https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf > vsftpd.conf
 curl https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh > inotifyfilechange_arm.sh
 
+
+# Obtain the current user name
+echo "Enter your selected user name: "
+read USER_NAME
+
 # Clone the OpenPLC runtime repo
-cd /home/$USER_NAME
-git clone https://github.com/thiagoralves/OpenPLC_v3.git
+git clone https://github.com/thiagoralves/OpenPLC_v3.git /home/"$USER_NAME"/OpenPLC_v3
 
 # Run OpenPLC's installation script
 cd /home/"$USER_NAME"/OpenPLC_v3
