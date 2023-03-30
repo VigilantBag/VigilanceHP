@@ -23,9 +23,9 @@ sudo rm /etc/vsftpd.conf
 sudo mv /home/aicshp/vsftd.conf /etc/vsftpd.conf
 
 # Configure and move vsftpd.user_list file
-echo aicshp > /etc/vsftpd.user_list
+sudo echo aicshp > /etc/vsftpd.user_list
 sudo chmod 644 /etc/vsftpd.user_list
-sudo chown root:wheel /etc/vsftpd.user_list
+sudo chown root:root /etc/vsftpd.user_list
 
 # Create the ftp server
 cd /home/aicshp/OpenPLC_v3/webserver/st_files
@@ -49,7 +49,7 @@ sudo ufw enable
 # Correct permissions, ownership and add inotify script to /etc/
 cd /home/aicshp/
 sudo chmod 755 inotifyfilechange_arm.sh
-sudo chown root:wheel inotifyfilechange_arm.sh
+sudo chown root:root inotifyfilechange_arm.sh
 sudo mv /home/aicshp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
 sudo cp /home/aicshp/OpenPLC_v3/webserver/scripts/start_plc.sh /etc/start_plc.sh
 
@@ -66,7 +66,7 @@ sleep 1m
 ethernet=ip -br l | awk '$1 !~ "lo|vir|wl|docker" { print $1}'
 docker run --init --rm -it -v `pwd`:/pcap --link kibana --link elasticsearch blacktop/filebeat:7.4.0 -e
 docker run --rm --cap-add=NET_RAW --net=host -v `pwd`:/pcap:rw blacktop/zeek:elastic -i af_packet::$ethernet local
-
+echo Kibana available on localhost:5601
 # Prompt user to set up crontab
 echo ""
 echo "Add the following to crontab: "
