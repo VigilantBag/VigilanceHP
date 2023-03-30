@@ -39,6 +39,7 @@ sudo ufw allow 20:21/tcp
 sudo ufw allow 30000:31000/tcp
 sudo ufw allow 502
 sudo ufw allow from any to any proto tcp port 10090:10100
+sudo ufw allow 5601
 
 # sudo ufw allow 8080/tcp <--uncomment for troubleshooting/setup
 # sudo ufw allow OpenSSH <-- uncomment for troubleshooting/setup
@@ -58,19 +59,9 @@ sudo cp /home/aicshp/OpenPLC_v3/webserver/scripts/start_openplc.sh /etc/start_op
 sudo groupadd docker
 sudo usermod -aG docker aicshp
 newgrp docker
-git clone https://github.com/VigilantBag/ICSPOT/ -b openplc
-cd ICSPOT/Logging/
-docker run -d --name elasFticsearch -p 9200:9200 -e discovery.type=single-node blacktop/elasticsearch:x-pack-7.4.0
-docker run -d --name kibana -p 5601:5601 --link elasticsearch -e xpack.reporting.enabled=false blacktop/kibana:x-pack-7.4.0
-echo Waiting for Kibana to start...
-sleep 1m
-ethernet=ip -br l | awk '$1 !~ "lo|vir|wl|docker" { print $1}'
-docker run --init --rm -it -v `pwd`:/pcap --link kibana --link elasticsearch blacktop/filebeat:7.4.0 -e
-docker run --rm --cap-add=NET_RAW --net=host -v `pwd`:/pcap:rw blacktop/zeek:elastic -i af_packet::$ethernet local
-echo Kibana available on localhost:5601
 # Prompt user to set up crontab
 echo ""
-echo "Add the following to crontab: "
+echo "Add the following to crontab then reboot: "
 echo "1 * * * * @reboot bash /etc/inotifyfilechange_arm.sh"
 echo "1 * * * * :@reboot bash /etc/start_openplc.sh"
 echo ""
