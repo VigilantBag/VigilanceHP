@@ -18,15 +18,14 @@ bash /home/$USER_NAME/OpenPLC_v3/install.sh linux
 # Move and utilize the pre-configured vsftpd file
 cd /home/aicshp/
 sudo chmod 644 vsftpd.conf
-sudo chown root:root vsftpd.conf
+sudo chown root:wheel vsftpd.conf
 sudo rm /etc/vsftpd.conf
 sudo mv /home/aicshp/vsftd.conf /etc/vsftpd.conf
 
 # Configure and move vsftpd.user_list file
-echo aicshp > vsftpd.user_list
-sudo chmod 644 vsftpd.user_list
-sudo chown root:root vsftpd.user_list
-sudo mv /home/aicshp/vsftd.user_list /etc/vsftpd.user_list
+echo aicshp > /etc/vsftpd.user_list
+sudo chmod 644 /etc/vsftpd.user_list
+sudo chown root:wheel /etc/vsftpd.user_list
 
 # Create the ftp server
 cd /home/aicshp/OpenPLC_v3/webserver/st_files
