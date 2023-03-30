@@ -52,7 +52,7 @@ cd /home/aicshp/
 sudo chmod 755 inotifyfilechange_arm.sh
 sudo chown root:root inotifyfilechange_arm.sh
 sudo mv /home/aicshp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
-sudo cp /home/aicshp/OpenPLC_v3/webserver/scripts/start_plc.sh /etc/start_plc.sh
+sudo cp /home/aicshp/OpenPLC_v3/webserver/scripts/start_openplc.sh /etc/start_openplc.sh
 
 # Add Zeek and Tshark Logging
 sudo groupadd docker
