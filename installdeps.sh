@@ -18,7 +18,7 @@ bash /home/aicshp/OpenPLC_v3/install.sh linux
 # Move and utilize the pre-configured vsftpd file
 cd /home/aicshp/
 sudo chmod 644 vsftpd.conf
-sudo chown root:wheel vsftpd.conf
+sudo chown root:root vsftpd.conf
 sudo rm /etc/vsftpd.conf
 sudo mv /home/aicshp/vsftpd.conf /etc/vsftpd.conf
 
@@ -39,7 +39,6 @@ sudo ufw allow 20:21/tcp
 sudo ufw allow 30000:31000/tcp
 sudo ufw allow 502
 sudo ufw allow from any to any proto tcp port 10090:10100
-sudo ufw allow 5601
 
 # sudo ufw allow 8080/tcp <--uncomment for troubleshooting/setup
 # sudo ufw allow OpenSSH <-- uncomment for troubleshooting/setup
@@ -61,7 +60,7 @@ sudo usermod -aG docker aicshp
 newgrp docker
 git clone https://github.com/VigilantBag/ICSPOT/ -b openplc
 cd ICSPOT/Logging/
-docker run -d --name elasticsearch -p 9200:9200 -e discovery.type=single-node blacktop/elasticsearch:x-pack-7.4.0
+docker run -d --name elasFticsearch -p 9200:9200 -e discovery.type=single-node blacktop/elasticsearch:x-pack-7.4.0
 docker run -d --name kibana -p 5601:5601 --link elasticsearch -e xpack.reporting.enabled=false blacktop/kibana:x-pack-7.4.0
 echo Waiting for Kibana to start...
 sleep 1m
