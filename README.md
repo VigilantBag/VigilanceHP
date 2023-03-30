@@ -68,9 +68,9 @@ Then you should be able to access Pimox at `http://the-ip-you-assigned:8006`
 
 Add the following to crontab:
 
-`@reboot bash /etc/inotifyfilechange.sh`
+`1 * * * * @reboot sh /etc/inotifyfilechange.sh`
 
-`@reboot bash /etc/start_plc.sh`
+`1 * * * * @reboot sh /etc/start_plc.sh`
 
 ### OpenPLC Usage
 
