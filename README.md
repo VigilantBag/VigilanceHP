@@ -10,18 +10,18 @@ For x86-64, install the ISO on the baremetal machine.
 
 Then you should be able to access Pimox at `http://the-ip-you-assigned:8006`
 
-6. The default login is:
+1. The default login is:
 
    - username: *root*
    - password: *you set this during installation*
-7. In the Proxmox web server:
+2. In the Proxmox web server:
 
    - ![Open the shell](./arm_based_installation/documentation/images/open_shell.png)
-8. Download the Ubuntu 22.04.2 server for AMD64 iso in Proxmox:
+3. Download the Ubuntu 22.04.2 server for AMD64 iso in Proxmox:
 
    - ![Upload the iso](./arm_based_installation/documentation/images/upload_iso.png)
    - [Ubuntu Server for AMD64](https://ubuntu.com/download/server)
-9. Create the VM:
+4. Create the VM:
 
    - ![create the vm](./arm_based_installation/documentation/images/create_vm.png)
    - Name the VM
@@ -41,7 +41,7 @@ Then you should be able to access Pimox at `http://the-ip-you-assigned:8006`
    - ![Change the boot order](./arm_based_installation/documentation/images/boot_order.png)
    - ![Boot order properties](./arm_based_installation/documentation/images/correct_boot_order.png)
    - ![Start the VM](./arm_based_installation/documentation/images/start.png)
-10. Ubuntu Server Installation Options:
+5. Ubuntu Server Installation Options:
 
     - ![Open the console](./arm_based_installation/documentation/images/console.png)
     - Language
@@ -56,17 +56,21 @@ Then you should be able to access Pimox at `http://the-ip-you-assigned:8006`
     - Skip pro
     - *Install openssh server*
     - Choose the Docker snap
-11. After installing and reaching the "remove installation medium" message, change the boot order or remove the CD drive.![boot order](./arm_based_installation/documentation/images/change_boot_order3.png)
+6. After installing and reaching the "remove installation medium" message, change the boot order or remove the CD drive.![boot order](./arm_based_installation/documentation/images/change_boot_order3.png)
 
 ### Install Dependencies:
+
+`git clone https://github.com/VigilantBag/AICSHP && cd AICSHP`
+
+`chmod +x installdeps.sh`
 
 `./installdeps.sh`
 
 Add the following to crontab:
 
-`@reboot bash /etc/inotifyfilechange.sh`
+`1 * * * * @reboot sh /etc/inotifyfilechange.sh`
 
-`@reboot bash /etc/start_plc.sh`
+`1 * * * * @reboot sh /etc/start_plc.sh`
 
 ### OpenPLC Usage
 

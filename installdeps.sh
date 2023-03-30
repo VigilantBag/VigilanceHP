@@ -18,7 +18,7 @@ bash /home/aicshp/OpenPLC_v3/install.sh linux
 # Move and utilize the pre-configured vsftpd file
 cd /home/aicshp/
 sudo chmod 644 vsftpd.conf
-sudo chown root:root vsftpd.conf
+sudo chown root:wheel vsftpd.conf
 sudo rm /etc/vsftpd.conf
 sudo mv /home/aicshp/vsftpd.conf /etc/vsftpd.conf
 
