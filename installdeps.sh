@@ -13,19 +13,20 @@ git clone https://github.com/thiagoralves/OpenPLC_v3.git /home/aicshp/OpenPLC_v3
 
 # Run OpenPLC's installation script
 cd /home/aicshp/OpenPLC_v3
-bash /home/$USER_NAME/OpenPLC_v3/install.sh linux
+bash /home/aicshp/OpenPLC_v3/install.sh linux
 
 # Move and utilize the pre-configured vsftpd file
 cd /home/aicshp/
 sudo chmod 644 vsftpd.conf
 sudo chown root:root vsftpd.conf
 sudo rm /etc/vsftpd.conf
-sudo mv /home/aicshp/vsftd.conf /etc/vsftpd.conf
+sudo mv /home/aicshp/vsftpd.conf /etc/vsftpd.conf
 
 # Configure and move vsftpd.user_list file
-sudo echo aicshp > /etc/vsftpd.user_list
-sudo chmod 644 /etc/vsftpd.user_list
-sudo chown root:root /etc/vsftpd.user_list
+echo aicshp > ./vsftpd.user_list
+sudo chmod 644 ./vsftpd.user_list
+sudo chown root:root ./vsftpd.user_list
+sudo mv ./vsftpd.user_list /etc/vsftpd.user_list
 
 # Create the ftp server
 cd /home/aicshp/OpenPLC_v3/webserver/st_files
@@ -71,7 +72,7 @@ echo Kibana available on localhost:5601
 echo ""
 echo "Add the following to crontab: "
 echo "1 * * * * @reboot bash /etc/inotifyfilechange_arm.sh"
-echo "1 * * * * :@reboot bash /etc/start_plc.sh"
+echo "1 * * * * :@reboot bash /etc/start_openplc.sh"
 echo ""
 
 sudo crontab -e
