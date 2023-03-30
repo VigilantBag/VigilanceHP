@@ -37,7 +37,7 @@ sudo systemctl restart vsftpd
 sudo ufw allow 20:21/tcp
 sudo ufw allow 30000:31000/tcp
 sudo ufw allow 502
-sudo allow from any to any proto tcp port 10090:10100
+sudo ufw allow from any to any proto tcp port 10090:10100
 
 # sudo ufw allow 8080/tcp <--uncomment for troubleshooting/setup
 # sudo ufw allow OpenSSH <-- uncomment for troubleshooting/setup
