@@ -54,6 +54,17 @@ sudo chown root:root inotifyfilechange_arm.sh
 sudo mv /home/aicshp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
 sudo cp /home/aicshp/OpenPLC_v3/webserver/scripts/start_plc.sh /etc/start_plc.sh
 
+# Add Zeek and Tshark Logging
+git clone https://github.com/VigilantBag/ICSPOT/ -b openplc
+cd ICSPOT/Logging/
+docker run -d --name elasticsearch -p 9200:9200 -e discovery.type=single-node blacktop/elasticsearch:x-pack-7.4.0
+docker run -d --name kibana -p 5601:5601 --link elasticsearch -e xpack.reporting.enabled=false blacktop/kibana:x-pack-7.4.0
+echo Waiting for Kibana to start...
+sleep 1m
+ethernet=ip -br l | awk '$1 !~ "lo|vir|wl|docker" { print $1}'
+docker run --init --rm -it -v `pwd`:/pcap --link kibana --link elasticsearch blacktop/filebeat:7.4.0 -e
+docker run --rm --cap-add=NET_RAW --net=host -v `pwd`:/pcap:rw blacktop/zeek:elastic -i af_packet::$ethernet local
+
 # Prompt user to set up crontab
 echo ""
 echo "Add the following to crontab: "
