@@ -54,6 +54,9 @@ sudo mv /home/aicshp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
 sudo cp /home/aicshp/OpenPLC_v3/webserver/scripts/start_plc.sh /etc/start_plc.sh
 
 # Add Zeek and Tshark Logging
+sudo groupadd docker
+sudo usermod -aG docker aicshp
+newgrp docker
 git clone https://github.com/VigilantBag/ICSPOT/ -b openplc
 cd ICSPOT/Logging/
 docker run -d --name elasticsearch -p 9200:9200 -e discovery.type=single-node blacktop/elasticsearch:x-pack-7.4.0
