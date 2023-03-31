@@ -41,6 +41,8 @@ sudo systemctl restart vsftpd
 sudo ufw allow 20:21/tcp
 sudo ufw allow 30000:31000/tcp
 sudo ufw allow 502
+sudo ufw allow 20000
+sudo ufw allow 44818
 sudo ufw allow from any to any proto tcp port 10090:10100
 
 
