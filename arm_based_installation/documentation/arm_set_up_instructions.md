@@ -77,7 +77,7 @@
     - Default Storage Configuration Options
     - Name
     - Server Name
-    - Username & Password <-- *make sure the username is **AICSHP** or things will break later*
+    - Username & Password <-- *make sure the username is **aicshp** or things will break later*
     - Skip pro
     - *Install openssh server*
     - No server snaps
