@@ -58,7 +58,9 @@ cd /home/aicshp/
 sudo chmod 755 ./inotifyfilechange_arm.sh
 sudo chown root:root ./inotifyfilechange_arm.sh
 sudo cp /home/aicshp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
-sudo cp /home/aicshp/OpenPLC_v3/webserver/scripts/start_openplc.sh /etc/start_openplc.sh
+echo "cd /home/aicshp/OpenPLC_v3/webserver" >> start_plc.sh
+echo "python2.7 webserver.py" >> start_plc.sh
+sudo mv start_plc.sh /etc/
 
 # Add Zeek and Tshark Logging
 sudo groupadd docker
