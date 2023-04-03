@@ -68,5 +68,6 @@ sudo usermod -aG docker aicshp
 newgrp docker
 
 # Prompt user to set up crontab
-echo "1 * * * * @reboot bash /etc/inotifyfilechange_arm.sh" >> /etc/crontab
-echo "1 * * * * :@reboot bash /etc/start_openplc.sh" >> /etc/crontab
+sudo su -
+echo "1 * * * * @reboot root /etc/inotifyfilechange_arm.sh" >> /var/spool/cron/crontabs/root
+echo "1 * * * * @reboot root /etc/start_openplc.sh" >> /var/spool/cron/crontabs/root
