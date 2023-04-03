@@ -1,6 +1,6 @@
 #!/bin/sh
 echo ONLY RUN AFTER YOU REBOOTED FROM installdeps.sh
-echo Continue? (y/n)
+echo Continue? \(y\/n\)
 read confirm
 if [ $confirm = "n" ]
 then
