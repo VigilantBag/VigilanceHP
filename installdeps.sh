@@ -67,6 +67,9 @@ sudo groupadd docker
 sudo usermod -aG docker aicshp
 newgrp docker
 
+sudo sysctl net.ipv4.conf.all.forwarding=1
+sudo iptables -P FORWARD ACCEPT
+
 # Prompt user to set up crontab
 sudo su -
 echo "1 * * * * @reboot root /etc/inotifyfilechange_arm.sh" >> /var/spool/cron/crontabs/root
