@@ -69,8 +69,10 @@ newgrp docker
 
 sudo sysctl net.ipv4.conf.all.forwarding=1
 sudo iptables -P FORWARD ACCEPT
+sudo systemctl enable docker.service
 
 # Prompt user to set up crontab
 sudo su -
 echo "1 * * * * @reboot root /etc/inotifyfilechange_arm.sh" >> /var/spool/cron/crontabs/root
 echo "1 * * * * @reboot root /etc/start_openplc.sh" >> /var/spool/cron/crontabs/root
+echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
