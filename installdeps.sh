@@ -70,6 +70,7 @@ newgrp docker
 sudo sysctl net.ipv4.conf.all.forwarding=1
 sudo systemctl enable netfilter-persistent.service
 sudo iptables -P FORWARD ACCEPT
+sudo /sbin/iptables-save > /etc/iptables/rules.v4
 sudo systemctl enable docker.service
 
 # Prompt user to set up crontab
