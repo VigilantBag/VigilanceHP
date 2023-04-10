@@ -7,7 +7,7 @@ cd /home/aicshp/
 # Update the system, install dependencies, and grab required files
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y git vsftpd inotify-tools docker.io
+sudo apt-get install -y git vsftpd inotify-tools docker.io iptables-persistent
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh
 
@@ -68,6 +68,7 @@ sudo usermod -aG docker aicshp
 newgrp docker
 
 sudo sysctl net.ipv4.conf.all.forwarding=1
+sudo systemctl enable netfilter-persistent.service
 sudo iptables -P FORWARD ACCEPT
 sudo systemctl enable docker.service
 
