@@ -82,7 +82,8 @@
     - *Install openssh server*
     - No server snaps
 
-12. Stop the VM and change the ![boot order](./images/change_boot_order3.png)
+12. Once the installation completes, *stop* the VM and change the boot order 
+    - ![boot order](./images/change_boot_order3.png)
 
 ---
 
@@ -99,5 +100,5 @@
     - `$ sudo chmod 755 openplc_arm_install.sh`
 
 3. Run the installation script
-    - `$ bash /home/your-username/openplc_arm_install.sh`
+    - `$ bash /home/aicshp/openplc_arm_install.sh`
     - Enter your username and password when prompted
