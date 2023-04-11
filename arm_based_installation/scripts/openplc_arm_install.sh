@@ -7,7 +7,7 @@ cd /home/aicshp/
 # Update the system, install dependencies, and grab required files
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y git vsftpd inotify-tools docker.io python3-pip
+sudo apt-get install -y git vsftpd inotify-tools docker.io python3-pip iptables-persistent
 sudo pip3 install pymodbus
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh
@@ -52,7 +52,7 @@ sudo ufw allow from any to any proto tcp port 10090:10100
 
 # Restart the firewall to reload the ufw rules
 sudo ufw disable
-sudo ufw enable
+# Keep ufw disabled to avoid IPTables conflict
 
 # Correct permissions, ownership and add inotify script to /etc/
 cd /home/aicshp/
@@ -60,17 +60,24 @@ sudo chmod 755 ./inotifyfilechange_arm.sh
 sudo chown root:root ./inotifyfilechange_arm.sh
 sudo cp /home/aicshp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
 sudo cp /home/aicshp/OpenPLC_v3/webserver/scripts/start_openplc.sh /etc/start_openplc.sh
+echo "cd /home/aicshp/OpenPLC_v3/webserver" >> start_plc.sh
+echo "python2.7 webserver.py" >> start_plc.sh
+sudo mv start_plc.sh /etc/
 
 # Add Zeek and Tshark Logging
 sudo groupadd docker
 sudo usermod -aG docker aicshp
 newgrp docker
 
-# Prompt user to set up crontab
-echo ""
-echo "Add the following to crontab then reboot: "
-echo "1 * * * * @reboot bash /etc/inotifyfilechange_arm.sh"
-echo "1 * * * * :@reboot bash /etc/start_openplc.sh"
-echo ""
+# Configure IPTables to allow docker to be run in promiscuous mode
+sudo sysctl net.ipv4.conf.all.forwarding=1
+sudo systemctl enable netfilter-persistent.service
+sudo iptables -P FORWARD ACCEPT
+sudo /sbin/iptables-save > /etc/iptables/rules.v4
+sudo systemctl enable docker.service
 
-sudo crontab -e
+# Set up crontab
+sudo su -
+echo "1 * * * * @reboot root /etc/inotifyfilechange_arm.sh" >> /var/spool/cron/crontabs/root
+echo "1 * * * * @reboot root /etc/start_openplc.sh" >> /var/spool/cron/crontabs/root
+echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf

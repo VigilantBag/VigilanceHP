@@ -7,7 +7,8 @@ cd /home/aicshp/
 # Update the system, install dependencies, and grab required files
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y git vsftpd inotify-tools docker.io iptables-persistent
+sudo apt-get install -y git vsftpd inotify-tools docker.io python3-pip iptables-persistent
+sudo pip3 install pymodbus
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh
 
@@ -67,6 +68,7 @@ sudo groupadd docker
 sudo usermod -aG docker aicshp
 newgrp docker
 
+# Configure IPTables to allow docker to be run in promiscuous mode
 sudo sysctl net.ipv4.conf.all.forwarding=1
 sudo systemctl enable netfilter-persistent.service
 sudo iptables -P FORWARD ACCEPT
