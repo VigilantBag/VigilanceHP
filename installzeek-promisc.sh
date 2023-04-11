@@ -6,6 +6,9 @@ if [ $confirm = "n" ]
 then
     exit
 else
+    sudo groupadd docker
+    sudo usermod -aG docker aicshp
+    newgrp docker
     git clone https://github.com/VigilantBag/ICSPOT/ -b openplc
     cd ICSPOT/Logging/
     docker run -d --cap-add=NET_ADMIN --name elasticsearch -p 9200:9200 -e discovery.type=single-node blacktop/elasticsearch:x-pack-7.4.0 
