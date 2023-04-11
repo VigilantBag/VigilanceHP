@@ -1,7 +1,3 @@
 #!/bin/sh
-docker kill elasticsearch
-docker kill kibana
-docker kill zeek
-docker rm elasticsearch
-docker rm kibana
-docker rm zeek
+docker kill $(docker ps -aq)
+docker rm $(docker ps -aq)
