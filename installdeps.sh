@@ -51,7 +51,7 @@ sudo ufw allow from any to any proto tcp port 10090:10100
 
 # Restart the firewall to reload the ufw rules
 sudo ufw disable
-sudo ufw enable
+# Keep UFW disabled to avoid conflict with IPTables 
 
 # Correct permissions, ownership and add inotify script to /etc/
 cd /home/aicshp/
