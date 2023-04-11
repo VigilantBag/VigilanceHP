@@ -7,7 +7,7 @@ cd /home/aicshp/
 # Update the system, install dependencies, and grab required files
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y git vsftpd inotify-tools docker.io
+sudo apt-get install -y git vsftpd inotify-tools docker.io iptables-persistent
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh
 
@@ -51,7 +51,7 @@ sudo ufw allow from any to any proto tcp port 10090:10100
 
 # Restart the firewall to reload the ufw rules
 sudo ufw disable
-sudo ufw enable
+# Keep UFW disabled to avoid conflict with IPTables 
 
 # Correct permissions, ownership and add inotify script to /etc/
 cd /home/aicshp/
@@ -68,7 +68,9 @@ sudo usermod -aG docker aicshp
 newgrp docker
 
 sudo sysctl net.ipv4.conf.all.forwarding=1
+sudo systemctl enable netfilter-persistent.service
 sudo iptables -P FORWARD ACCEPT
+sudo /sbin/iptables-save > /etc/iptables/rules.v4
 sudo systemctl enable docker.service
 
 # Prompt user to set up crontab
