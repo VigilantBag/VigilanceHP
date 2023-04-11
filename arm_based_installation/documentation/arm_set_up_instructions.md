@@ -91,7 +91,7 @@
 
 ---
 
-### Using the Arm64 Installation Script
+### Arm64 Installation Script
 
 1. Download the installation script from github
     - `$ curl https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/openplc_arm_install.sh > openplc_arm_install.sh` <-- download the custom installation
@@ -102,3 +102,27 @@
 3. Run the installation script
     - `$ bash /home/aicshp/openplc_arm_install.sh`
     - Enter your username and password when prompted
+
+### iNotify Script
+
+1. Run the inotify script
+    - `$ sudo bash /home/aicshp/inotifyfilechange_arm.sh` <-- Run the inotify script before opening an FTP connection from another computer with your custom st_files
+
+2. On another computer open an ftp connection with the PLC you wish to add your custom st_file to
+    - on windows ftp connections must be allowed
+    - on macOS homebrew can be used to install an ftp client
+
+3. Transfer the st_file to the plc, the plc should then reboot with the new program installed and running
+
+### Sanity Checks
+
+1. Download the sanity check files from Github
+    - `$ wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/sanity_check/read_plc1.py` <-- download both the files required to read the coils of the plcs
+    - `$ wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/sanity_check/read_plc2.py`
+
+2. Change the IP addresses within each read_plc*.py file
+    - The ip address for the plc you're checking must be inserted in place of the stars in the image below
+    - ![](./images/read_plc.png) 
+
+3. Run the read_plc*.py program with the plcs running
+

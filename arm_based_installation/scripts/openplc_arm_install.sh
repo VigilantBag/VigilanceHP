@@ -7,7 +7,8 @@ cd /home/aicshp/
 # Update the system, install dependencies, and grab required files
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y git vsftpd inotify-tools docker.io
+sudo apt-get install -y git vsftpd inotify-tools docker.io python3-pip
+sudo pip3 install pymodbus
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh
 
