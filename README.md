@@ -8,7 +8,7 @@ For x86-64, install the ISO on the baremetal machine.
 
 [Proxmox Downloads](https://www.proxmox.com/en/downloads)
 
-Then you should be able to access Pimox at `http://the-ip-you-assigned:8006`
+Then you should be able to access Proxmox at `https://the.ip.you.assigned:8006`
 
 1. The default login is:
 
@@ -62,7 +62,7 @@ Then you should be able to access Pimox at `http://the-ip-you-assigned:8006`
 
 `git clone https://github.com/VigilantBag/AICSHP && cd AICSHP`
 
-`chmod +x installdeps.sh`
+`chmod +x *.sh`
 
 `./installdeps.sh`
 
@@ -71,6 +71,12 @@ Add the following to crontab:
 `1 * * * * @reboot sh /etc/inotifyfilechange.sh`
 
 `1 * * * * @reboot sh /etc/start_plc.sh`
+
+Reboot the system
+
+After restart, install Zeek:
+
+`./installzeek`
 
 ### OpenPLC Usage
 
