@@ -66,7 +66,6 @@ sudo mv start_plc.sh /etc/
 # Add Zeek and Tshark Logging
 sudo groupadd docker
 sudo usermod -aG docker aicshp
-newgrp docker
 
 # Configure IPTables to allow docker to be run in promiscuous mode
 sudo sysctl net.ipv4.conf.all.forwarding=1
