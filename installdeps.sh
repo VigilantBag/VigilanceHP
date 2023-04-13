@@ -71,7 +71,7 @@ sudo usermod -aG docker aicshp
 sudo sysctl net.ipv4.conf.all.forwarding=1
 sudo systemctl enable netfilter-persistent.service
 sudo iptables -P FORWARD ACCEPT
-sudo su -
+sudo su
 /sbin/iptables-save > /etc/iptables/rules.v4
 systemctl enable docker.service
 
@@ -79,3 +79,4 @@ systemctl enable docker.service
 echo "1 * * * * @reboot root /etc/inotifyfilechange_arm.sh" >> /var/spool/cron/crontabs/root
 echo "1 * * * * @reboot root /etc/start_openplc.sh" >> /var/spool/cron/crontabs/root
 echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
+exit
