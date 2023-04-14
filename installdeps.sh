@@ -66,17 +66,18 @@ sudo mv start_plc.sh /etc/
 # Add Zeek and Tshark Logging
 sudo groupadd docker
 sudo usermod -aG docker aicshp
-newgrp docker
 
 # Configure IPTables to allow docker to be run in promiscuous mode
 sudo sysctl net.ipv4.conf.all.forwarding=1
 sudo systemctl enable netfilter-persistent.service
 sudo iptables -P FORWARD ACCEPT
-sudo /sbin/iptables-save > /etc/iptables/rules.v4
+sudo /sbin/iptables-save | sudo tee /etc/iptables/rules.v4
 sudo systemctl enable docker.service
 
 # Prompt user to set up crontab
-sudo su -
-echo "1 * * * * @reboot root /etc/inotifyfilechange_arm.sh" >> /var/spool/cron/crontabs/root
-echo "1 * * * * @reboot root /etc/start_openplc.sh" >> /var/spool/cron/crontabs/root
-echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
+echo "@reboot sleep 30s && sh /etc/inotifyfilechange_arm.sh > /dev/null" | sudo tee -a /var/spool/cron/crontabs/root
+echo "" | sudo tee -a /var/spool/cron/crontabs/root
+echo "@reboot sleep 30s && sh /etc/start_openplc.sh > /dev/null" | sudo tee -a /var/spool/cron/crontabs/root
+echo "" | sudo tee -a /var/spool/cron/crontabs/root
+echo "net.ipv4.conf.all.forwarding=1" | sudo tee -a /etc/sysctl.conf
+exit
