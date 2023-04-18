@@ -75,9 +75,9 @@ sudo /sbin/iptables-save | sudo tee /etc/iptables/rules.v4
 sudo systemctl enable docker.service
 
 # Prompt user to set up crontab
-echo "@reboot sleep 30s && sh /etc/inotifyfilechange_arm.sh > /dev/null" | sudo tee -a /var/spool/cron/crontabs/root
+echo "@reboot sleep 30s && sh /etc/inotifyfilechange_arm.sh > /var/log/inotifyscript.txt" | sudo tee -a /var/spool/cron/crontabs/root
 echo "" | sudo tee -a /var/spool/cron/crontabs/root
-echo "@reboot sleep 30s && sh /etc/start_openplc.sh > /dev/null" | sudo tee -a /var/spool/cron/crontabs/root
+echo "@reboot sleep 30s && sh /etc/start_openplc.sh > /var/log/startplcscript.txt" | sudo tee -a /var/spool/cron/crontabs/root
 echo "" | sudo tee -a /var/spool/cron/crontabs/root
 echo "net.ipv4.conf.all.forwarding=1" | sudo tee -a /etc/sysctl.conf
 exit
