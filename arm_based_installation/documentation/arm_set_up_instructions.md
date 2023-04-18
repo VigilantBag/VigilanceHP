@@ -126,3 +126,25 @@
 
 3. Run the read_plc*.py program with the plcs running
 
+### ScadaBR Setup
+
+1. On a separate x86 computer, install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+2. With virtual box installed, download the [ScadaBR Image](https://drive.google.com/file/d/1gEOZmN9_Nt5shXy4iYS1z_EMxB4r0Kzh/view)
+3. Import the ScadaBR image in VirtualBox:
+    - click File < Import Appliance < (Choose the ScadaBR image you downloaded)
+    - open the settings of the virtual machine
+    - make sure the adapter is set to bridged in the network tab
+4. Open the website on the login screen *http://virtual-machine-ip:8080/ScadaBR*
+    - default username: admin
+    - default password: admin
+5. Connecting the plcs:
+    - In the *Data Sources* tab add a *BACnet I/P* data source
+    - Name the source
+    - Set the *transport type* to *TCP with keep-alive*
+    - Add the IP address of the master-plc to the *Host* tab
+    - Set the *port* to 502
+    - In the points tab click *Add Point*
+        - *Name* the point
+        - Choose *Coil Status*
+        - Make sure the *Slave id* is set to 1
+    - Repeat the same process for the slave plc, instead using its ip address, name, *port* 502, and the same information in the points tab
