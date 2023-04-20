@@ -10,6 +10,8 @@ sudo DEBIAN_FRONTEND='noninteractive' apt-get -y -o Dpkg::Options::='--force-con
 sudo DEBIAN_FRONTEND='noninteractive' apt-get -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install git vsftpd inotify-tools docker.io python3-pip iptables-persistent
 sudo pip3 install pymodbus
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf
+wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/startplc.service
+wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/preconfigured_files/inotify.service
 wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh
 
 # Clone the OpenPLC runtime repo
@@ -31,6 +33,8 @@ echo aicshp > ./vsftpd.user_list
 sudo chmod 644 ./vsftpd.user_list
 sudo chown root:root ./vsftpd.user_list
 sudo cp /home/aicshp/vsftpd.user_list /etc/vsftpd.user_list
+sudo cp /home/aicshp/inotify.service /etc/systemd/system/inotify.service
+sudo cp /home/aicshp/startplc.service /etc/systemd/system/startplc.service
 
 # Create the ftp server
 cd /home/aicshp/OpenPLC_v3/webserver/st_files
@@ -72,12 +76,9 @@ sudo sysctl net.ipv4.conf.all.forwarding=1
 sudo systemctl enable netfilter-persistent.service
 sudo iptables -P FORWARD ACCEPT
 sudo /sbin/iptables-save | sudo tee /etc/iptables/rules.v4
+sudo systemctl daemon-reload
 sudo systemctl enable docker.service
-
-# Prompt user to set up crontab
-echo "@reboot sleep 15s && sh /etc/inotifyfilechange_arm.sh > /var/log/inotifyscript.txt" | sudo tee -a /var/spool/cron/crontabs/root
-echo "" | sudo tee -a /var/spool/cron/crontabs/root
-echo "@reboot sleep 15s && sh /etc/start_openplc.sh > /var/log/startplcscript.txt" | sudo tee -a /var/spool/cron/crontabs/root
-echo "" | sudo tee -a /var/spool/cron/crontabs/root
-echo "net.ipv4.conf.all.forwarding=1" | sudo tee -a /etc/sysctl.conf
-exit
+sudo systemctl enable inotify.service
+sudo systemctl enable startplc.service
+sudo systemctl restart inotify.service
+sudo systemctl restart startplc.service

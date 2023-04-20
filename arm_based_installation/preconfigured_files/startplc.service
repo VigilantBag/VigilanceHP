@@ -1,0 +1,13 @@
+[Unit]
+Description=Start OpenPLC_v3
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/bin/bash /etc/start_openplc.sh
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/aicshp
+Restart=on-failure
