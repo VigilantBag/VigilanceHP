@@ -56,7 +56,7 @@ sudo ufw allow from any to any proto tcp port 10090:10100
 
 # Restart the firewall to reload the ufw rules
 sudo ufw disable
-# Keep UFW disabled to avoid conflict with IPTables 
+sudo ufw enable
 
 # Correct permissions, ownership and add inotify script to /etc/
 cd /home/aicshp/
@@ -72,10 +72,7 @@ sudo groupadd docker
 sudo usermod -aG docker aicshp
 
 # Configure IPTables to allow docker to be run in promiscuous mode
-sudo sysctl net.ipv4.conf.all.forwarding=1
-sudo systemctl enable netfilter-persistent.service
-sudo iptables -P FORWARD ACCEPT
-sudo /sbin/iptables-save | sudo tee /etc/iptables/rules.v4
+
 sudo systemctl daemon-reload
 sudo systemctl enable docker.service
 sudo systemctl enable inotify.service
