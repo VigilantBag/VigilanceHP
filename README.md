@@ -76,7 +76,11 @@ Reboot the system
 
 After restart, install Zeek:
 
-`./installzeek`
+`./installzeek.sh`
+
+If you want to run Zeek/Tshark and Kibana on one machine, install the promiscuous mode option on the host machine:
+
+`./installzeek-promisc.sh`
 
 ### OpenPLC Usage
 
