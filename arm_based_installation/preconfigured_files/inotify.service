@@ -1,0 +1,13 @@
+[Unit]
+Description=Inotify Daemon Script
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/bin/bash /etc/inotifyfilechange_arm.sh
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/aicshp
+Restart=on-failure

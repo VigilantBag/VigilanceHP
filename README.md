@@ -66,17 +66,15 @@ Then you should be able to access Proxmox at `https://the.ip.you.assigned:8006`
 
 `./installdeps.sh`
 
-Add the following to crontab:
-
-`1 * * * * @reboot sh /etc/inotifyfilechange.sh`
-
-`1 * * * * @reboot sh /etc/start_plc.sh`
-
 Reboot the system
 
 After restart, install Zeek:
 
-`./installzeek`
+`./installzeek.sh`
+
+If you want to run Zeek/Tshark and Kibana on one machine, install the promiscuous mode option on the host machine:
+
+`./installzeek-promisc.sh`
 
 ### OpenPLC Usage
 
