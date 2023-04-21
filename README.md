@@ -66,12 +66,6 @@ Then you should be able to access Proxmox at `https://the.ip.you.assigned:8006`
 
 `./installdeps.sh`
 
-Add the following to crontab:
-
-`1 * * * * @reboot sh /etc/inotifyfilechange.sh`
-
-`1 * * * * @reboot sh /etc/start_plc.sh`
-
 Reboot the system
 
 After restart, install Zeek:
