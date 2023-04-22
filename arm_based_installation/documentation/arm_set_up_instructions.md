@@ -12,7 +12,7 @@
 
 ---
 
-1. Install Pimox using [Raspberry Pi OS Lite (64-bit)](https://downloads.raspberrypi.org/raspios_oldstable_lite_armhf/images/raspios_oldstable_lite_armhf-2023-02-22/2023-02-21-raspios-buster-armhf-lite.img.xz). **This will _ONLY_ work with the 64-bit lite version** 
+1. Install [Raspberry Pi OS Lite (64-bit)](https://downloads.raspberrypi.org/raspios_oldstable_lite_armhf/images/raspios_oldstable_lite_armhf-2023-02-22/2023-02-21-raspios-buster-armhf-lite.img.xz). **This will _ONLY_ work with the 64-bit lite version** 
 
 2. Using the raspberry pi imager software: 
     - enable ssh
@@ -103,6 +103,8 @@
     - `$ bash /home/aicshp/openplc_arm_install.sh`
     - Enter your username and password when prompted
 
+---
+
 ### iNotify Script
 
 1. Run the inotify script
@@ -113,6 +115,8 @@
     - on macOS homebrew can be used to install an ftp client
 
 3. Transfer the st_file to the plc, the plc should then reboot with the new program installed and running
+
+---
 
 ### Sanity Checks
 
@@ -126,3 +130,53 @@
 
 3. Run the read_plc*.py program with the plcs running
 
+---
+
+### ScadaBR Setup
+
+1. On a separate x86 computer, install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+2. With virtual box installed, download the [ScadaBR Image](https://drive.google.com/file/d/1gEOZmN9_Nt5shXy4iYS1z_EMxB4r0Kzh/view)
+3. Import the ScadaBR image in VirtualBox:
+    - click File < Import Appliance < (Choose the ScadaBR image you downloaded)
+    - open the settings of the virtual machine
+    - make sure the adapter is set to bridged in the network tab
+4. Open the website on the login screen *http://virtual-machine-ip:8080/ScadaBR*
+    - default username: admin
+    - default password: admin
+5. Connecting the plcs:
+    - In the *Data Sources* tab add a *BACnet I/P* data source
+    - Name the source
+    - Set the *transport type* to *TCP with keep-alive*
+    - Add the IP address of the master-plc to the *Host* tab
+    - Set the *port* to 502
+    - In the points tab click *Add Point*
+        - *Name* the point
+        - Choose *Coil Status*
+        - Make sure the *Slave id* is set to 1
+    - Repeat the same process for the slave plc, instead using its ip address, name, *port* 502, and the same information in the points tab
+
+---
+
+### Installing the Ftp Server on the Physical Pi and using tshark
+
+**Important Note:** This step should be done last when you are configuring AICSHP.
+
+1. To view .pcap files generated from tshark on another computer, configure the ftp server **on the Physical Pi**
+    1. Open the *Shell* section in Proxmox for the Pi itself **NOT** any of the VMs (or SSH into the pi from another computer)
+    2. Download the create_ftp_server.sh
+        - `wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/create_ftp_server.sh` <-- this script installs tshark and vsftpd, as well as configures them to work 
+    3. Make create_ftp_server.sh executable and run it
+        - `sudo chmod +x create_ftp_server.sh`
+        - `bash create_ftp_server.sh`
+2. Using tshark
+    1. Get the "tap" network's interface name, this is the network on which the Pimox VM's interact
+        - `ip a` <-- look for the network name that begins with tap
+    2. Use tshark to monitor the network and when your capture is complete, move the captured file to the wireshark user's home directory
+        - `tshark -w /tmp/tap_network_traffic.pcap -i tap*` <-- replace the * with the rest of your tap network's name
+        - `sudo cp /tmp/tap_network_traffic.pcap /home/wireshark/tap_network_traffic.pcap`
+3. On a separate computer use an FTP client download the file
+    1. Connect via FTP with the user 'wireshark' to the physical Pi
+        - ![](./images/ftp_connect.png)
+    2. Change the transfer type to binary and transfer the capture to the other computer
+        - ![](./images/change_to_binary.png)
+4. Open the pcap in wireshark for analysis
