@@ -43,24 +43,24 @@ Then you should be able to access Proxmox at `https://the.ip.you.assigned:8006`
    - ![Start the VM](./arm_based_installation/documentation/images/start.png)
 5. Ubuntu Server Installation Options:
 
-    - ![Open the console](./arm_based_installation/documentation/images/console.png)
-    - Language
-    - Keyboard Layout
-    - *Ubuntu Server*
-    - Auto Configured Network Connection
-    - No Proxy
-    - Default Storage Configuration Options
-    - Name
-    - Server Name
-    - Username & Password <-- *make sure the username is ***aicshp*** or things will break later*
-    - Skip pro
-    - *Install openssh server*
-    - Choose the Docker snap
+   - ![Open the console](./arm_based_installation/documentation/images/console.png)
+   - Language
+   - Keyboard Layout
+   - *Ubuntu Server*
+   - Auto Configured Network Connection
+   - No Proxy
+   - Default Storage Configuration Options
+   - Name
+   - Server Name
+   - Username & Password <-- *make sure the username is ***vhp*** or things will break later*
+   - Skip pro
+   - *Install openssh server*
+   - Choose the Docker snap
 6. After installing and reaching the "remove installation medium" message, change the boot order or remove the CD drive.![boot order](./arm_based_installation/documentation/images/change_boot_order3.png)
 
 ### Install Dependencies:
 
-`git clone https://github.com/VigilantBag/AICSHP && cd AICSHP`
+`git clone https://github.com/VigilantBag/VigilanceHP && cd VigilanceHP`
 
 `chmod +x *.sh`
 
