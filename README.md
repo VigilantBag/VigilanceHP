@@ -1,4 +1,4 @@
-![](assets/20230303_131323_AICSHP-logo.png)
+![](assets/VigilanceHP-logo.png)
 
 # Install
 
