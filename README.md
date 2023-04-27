@@ -1,4 +1,4 @@
-![](assets/VigilanceHP-logo.png)
+![](assets/VHP-logo-acro.png)
 
 # Install
 
