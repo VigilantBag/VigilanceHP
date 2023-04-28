@@ -77,7 +77,7 @@
     - Default Storage Configuration Options
     - Name
     - Server Name
-    - Username & Password <-- *make sure the username is **aicshp** or things will break later*
+    - Username & Password <-- *make sure the username is **vhp** or things will break later*
     - Skip pro
     - *Install openssh server*
     - No server snaps
@@ -94,13 +94,13 @@
 ### Arm64 Installation Script
 
 1. Download the installation script from github
-    - `$ curl https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/openplc_arm_install.sh > openplc_arm_install.sh` <-- download the custom installation
+    - `$ curl https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/scripts/openplc_arm_install.sh > openplc_arm_install.sh` <-- download the custom installation
 
 2. Change the permissions on openplc_arm_install.sh
     - `$ sudo chmod 755 openplc_arm_install.sh`
 
 3. Run the installation script
-    - `$ bash /home/aicshp/openplc_arm_install.sh`
+    - `$ bash /home/vhp/openplc_arm_install.sh`
     - Enter your username and password when prompted
 
 ---
@@ -108,7 +108,7 @@
 ### iNotify Script
 
 1. Run the inotify script
-    - `$ sudo bash /home/aicshp/inotifyfilechange_arm.sh` <-- Run the inotify script before opening an FTP connection from another computer with your custom st_files
+    - `$ sudo bash /home/vhp/inotifyfilechange_arm.sh` <-- Run the inotify script before opening an FTP connection from another computer with your custom st_files
 
 2. On another computer open an ftp connection with the PLC you wish to add your custom st_file to
     - on windows ftp connections must be allowed
@@ -121,8 +121,8 @@
 ### Sanity Checks
 
 1. Download the sanity check files from Github
-    - `$ wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/sanity_check/read_plc1.py` <-- download both the files required to read the coils of the plcs
-    - `$ wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/sanity_check/read_plc2.py`
+    - `$ wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/sanity_check/read_plc1.py` <-- download both the files required to read the coils of the plcs
+    - `$ wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/sanity_check/read_plc2.py`
 
 2. Change the IP addresses within each read_plc*.py file
     - The ip address for the plc you're checking must be inserted in place of the stars in the image below
@@ -144,7 +144,7 @@
     - default username: admin
     - default password: admin
 5. Connecting the plcs:
-    - In the *Data Sources* tab add a *BACnet I/P* data source
+    - In the *Data Sources* tab add a *Modbus IP* data source
     - Name the source
     - Set the *transport type* to *TCP with keep-alive*
     - Add the IP address of the master-plc to the *Host* tab
@@ -159,12 +159,12 @@
 
 ### Installing the Ftp Server on the Physical Pi and using tshark
 
-**Important Note:** This step should be done last when you are configuring AICSHP.
+**Important Note:** This step should be done last when you are configuring VigilanceHP.
 
 1. To view .pcap files generated from tshark on another computer, configure the ftp server **on the Physical Pi**
     1. Open the *Shell* section in Proxmox for the Pi itself **NOT** any of the VMs (or SSH into the pi from another computer)
     2. Download the create_ftp_server.sh
-        - `wget https://raw.githubusercontent.com/VigilantBag/AICSHP/openplc/arm_based_installation/scripts/create_ftp_server.sh` <-- this script installs tshark and vsftpd, as well as configures them to work 
+        - `wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/scripts/create_ftp_server.sh` <-- this script installs tshark and vsftpd, as well as configures them to work 
     3. Make create_ftp_server.sh executable and run it
         - `sudo chmod +x create_ftp_server.sh`
         - `bash create_ftp_server.sh`
