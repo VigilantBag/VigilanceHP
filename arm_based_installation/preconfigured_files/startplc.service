@@ -9,5 +9,5 @@ ExecStart=/bin/bash /etc/start_openplc.sh
 Type=simple
 User=root
 Group=root
-WorkingDirectory=/home/aicshp
+WorkingDirectory=/home/vhp
 Restart=on-failure
