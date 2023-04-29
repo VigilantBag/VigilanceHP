@@ -5,9 +5,9 @@ Description=Inotify Daemon Script
 WantedBy=multi-user.target
 
 [Service]
-ExecStart=/bin/bash /etc/inotifyfilechange_arm.sh
+ExecStart=/bin/sh /etc/inotifyfilechange_arm.sh
 Type=simple
 User=root
 Group=root
-WorkingDirectory=/home/aicshp
+WorkingDirectory=/home/vhp
 Restart=on-failure

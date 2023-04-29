@@ -63,9 +63,9 @@ cd /home/vhp/
 sudo chmod 755 ./inotifyfilechange_arm.sh
 sudo chown root:root ./inotifyfilechange_arm.sh
 sudo cp /home/vhp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
-echo "cd /home/vhp/OpenPLC_v3/webserver" >> start_plc.sh
-echo "python2.7 webserver.py" >> start_plc.sh
-sudo mv start_plc.sh /etc/
+echo "cd /home/vhp/OpenPLC_v3/webserver" >> start_openplc.sh
+echo "python2.7 webserver.py" >> start_openplc.sh
+sudo mv start_openplc.sh /etc/
 
 # Add Zeek and Tshark Logging
 sudo groupadd docker

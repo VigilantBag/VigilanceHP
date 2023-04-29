@@ -7,7 +7,7 @@ cd /home/vhp/
 # Update the system, install dependencies, and grab required files
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y git vsftpd inotify-tools docker.io python3-pip iptables-persistent
+sudo apt-get install -y git vsftpd inotify-tools python3-pip iptables-persistent
 sudo pip3 install pymodbus
 wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf
 wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh
@@ -60,21 +60,9 @@ sudo chmod 755 ./inotifyfilechange_arm.sh
 sudo chown root:root ./inotifyfilechange_arm.sh
 sudo cp /home/vhp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
 sudo cp /home/vhp/OpenPLC_v3/webserver/scripts/start_openplc.sh /etc/start_openplc.sh
-echo "cd /home/vhp/OpenPLC_v3/webserver" >> start_plc.sh
-echo "python2.7 webserver.py" >> start_plc.sh
-sudo mv start_plc.sh /etc/
-
-# Add Zeek and Tshark Logging
-sudo groupadd docker
-sudo usermod -aG docker vhp
-newgrp docker
-
-# Configure IPTables to allow docker to be run in promiscuous mode
-sudo sysctl net.ipv4.conf.all.forwarding=1
-sudo systemctl enable netfilter-persistent.service
-sudo iptables -P FORWARD ACCEPT
-sudo /sbin/iptables-save > /etc/iptables/rules.v4
-sudo systemctl enable docker.service
+echo "cd /home/vhp/OpenPLC_v3/webserver" >> start_openplc.sh
+echo "python2.7 webserver.py" >> start_openplc.sh
+sudo mv start_openplc.sh /etc/
 
 # Set up crontab
 sudo su -
