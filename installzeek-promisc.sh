@@ -1,11 +1,9 @@
 #!/bin/sh
 echo This can ONLY be run on the HOST machine, not a VM.
-echo Continue? \(y\/n\)
+echo Continue? \(y\/N\)
 read confirm
-if [ $confirm = "n" ]
+if [ $confirm = "y" ]
 then
-    exit
-else
     apt update
     apt install gnome-terminal ca-certificates gnupg curl -y
     install -m 0755 -d /etc/apt/keyrings
@@ -25,4 +23,6 @@ else
     docker run -d --cap-add=NET_ADMIN --net=host -v `pwd`:/pcap:rw blacktop/zeek:elastic -i af_packet::vmbr0 local
     echo Kibana available on localhost:5601
     docker update --restart unless-stopped $(docker ps -q)
+else
+    exit
 fi
