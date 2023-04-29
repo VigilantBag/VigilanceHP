@@ -11,6 +11,8 @@ sudo apt-get install -y git vsftpd inotify-tools python3-pip iptables-persistent
 sudo pip3 install pymodbus
 wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/preconfigured_files/vsftpd.conf
 wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/scripts/inotifyfilechange_arm.sh
+wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/preconfigured_files/startplc.service
+wget https://raw.githubusercontent.com/VigilantBag/VigilanceHP/openplc/arm_based_installation/preconfigured_files/inotify.service
 
 # Clone the OpenPLC runtime repo
 git clone https://github.com/thiagoralves/OpenPLC_v3.git /home/vhp/OpenPLC_v3
@@ -27,10 +29,16 @@ sudo rm /etc/vsftpd.conf
 sudo cp /home/vhp/vsftpd.conf /etc/vsftpd.conf
 
 # Configure and move vsftpd.user_list file
+cd /home/vhp/
 echo vhp > ./vsftpd.user_list
 sudo chmod 644 ./vsftpd.user_list
 sudo chown root:root ./vsftpd.user_list
 sudo cp /home/vhp/vsftpd.user_list /etc/vsftpd.user_list
+
+# Move the service files
+cd /home/vhp/
+sudo cp /home/vhp/inotify.service /etc/systemd/system/inotify.service
+sudo cp /home/vhp/startplc.service /etc/systemd/system/startplc.service
 
 # Create the ftp server
 cd /home/vhp/OpenPLC_v3/webserver/st_files
@@ -47,8 +55,8 @@ sudo ufw allow 44818
 sudo ufw allow 5601
 sudo ufw allow from any to any proto tcp port 10090:10100
 
-# sudo ufw allow 8080/tcp <--uncomment for troubleshooting/setup
-# sudo ufw allow OpenSSH <-- uncomment for troubleshooting/setup
+# sudo ufw allow 8080/tcp #<--uncomment for troubleshooting/setup
+# sudo ufw allow OpenSSH  #<-- uncomment for troubleshooting/setup
 
 # Restart the firewall to reload the ufw rules
 sudo ufw disable
@@ -59,13 +67,17 @@ cd /home/vhp/
 sudo chmod 755 ./inotifyfilechange_arm.sh
 sudo chown root:root ./inotifyfilechange_arm.sh
 sudo cp /home/vhp/inotifyfilechange_arm.sh /etc/inotifyfilechange_arm.sh
-sudo cp /home/vhp/OpenPLC_v3/webserver/scripts/start_openplc.sh /etc/start_openplc.sh
-echo "cd /home/vhp/OpenPLC_v3/webserver" >> start_openplc.sh
-echo "python2.7 webserver.py" >> start_openplc.sh
-sudo mv start_openplc.sh /etc/
+echo "cd /home/vhp/OpenPLC_v3/webserver" >> /home/vhp/OpenPLC_v3/start_openplc.sh
+echo "python2.7 webserver.py" >> /home/vhp/OpenPLC_v3/start_openplc.sh
+sudo cp /home/vhp/OpenPLC_v3/start_openplc.sh /etc/start_openplc.sh
 
-# Set up crontab
-sudo su -
-echo "1 * * * * @reboot root /etc/inotifyfilechange_arm.sh" >> /var/spool/cron/crontabs/root
-echo "1 * * * * @reboot root /etc/start_openplc.sh" >> /var/spool/cron/crontabs/root
-echo "net.ipv4.conf.all.forwarding=1" >> /etc/sysctl.conf
+# Start required services
+sudo systemctl daemon-reload
+sudo systemctl enable inotify.service
+sudo systemctl enable startplc.service
+sudo systemctl restart inotify.service
+sudo systemctl restart startplc.service
+
+# Disable openplc.service
+sudo systemctl stop openplc.service
+sudo systemctl disable openplc.service
